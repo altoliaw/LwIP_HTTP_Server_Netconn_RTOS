@@ -1,0 +1,6 @@
+{
+    "gatewayName":"gatewayName",
+    "ipAddress":"ipAddress",
+    "netmask":"netmask",
+    "port":"port"
+}

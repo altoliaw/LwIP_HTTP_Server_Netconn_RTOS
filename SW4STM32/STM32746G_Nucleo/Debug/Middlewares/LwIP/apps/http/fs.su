@@ -1,0 +1,3 @@
+C:/Users/Nick/STM32CubeIDE/workspace/LwIP_HTTP_Server_Netconn_RTOS/Middlewares/Third_Party/LwIP/src/apps/http/fs.c:57:1:fs_open	16	static
+C:/Users/Nick/STM32CubeIDE/workspace/LwIP_HTTP_Server_Netconn_RTOS/Middlewares/Third_Party/LwIP/src/apps/http/fs.c:96:1:fs_close	0	static
+C:/Users/Nick/STM32CubeIDE/workspace/LwIP_HTTP_Server_Netconn_RTOS/Middlewares/Third_Party/LwIP/src/apps/http/fs.c:171:1:fs_bytes_left	0	static

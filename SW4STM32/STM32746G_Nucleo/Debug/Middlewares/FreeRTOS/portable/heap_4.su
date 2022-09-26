@@ -1,0 +1,6 @@
+C:/Users/Nick/STM32CubeIDE/workspace/LwIP_HTTP_Server_Netconn_RTOS/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c:377:13:prvInsertBlockIntoFreeList	12	static
+C:/Users/Nick/STM32CubeIDE/workspace/LwIP_HTTP_Server_Netconn_RTOS/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c:113:7:pvPortMalloc	24	static,ignoring_inline_asm
+C:/Users/Nick/STM32CubeIDE/workspace/LwIP_HTTP_Server_Netconn_RTOS/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c:263:6:vPortFree	16	static,ignoring_inline_asm
+C:/Users/Nick/STM32CubeIDE/workspace/LwIP_HTTP_Server_Netconn_RTOS/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c:311:8:xPortGetFreeHeapSize	0	static
+C:/Users/Nick/STM32CubeIDE/workspace/LwIP_HTTP_Server_Netconn_RTOS/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c:317:8:xPortGetMinimumEverFreeHeapSize	0	static
+C:/Users/Nick/STM32CubeIDE/workspace/LwIP_HTTP_Server_Netconn_RTOS/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c:323:6:vPortInitialiseBlocks	0	static

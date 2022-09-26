@@ -1,0 +1,2 @@
+C:/Users/Nick/STM32CubeIDE/workspace/LwIP_HTTP_Server_Netconn_RTOS/Src/app_ethernet.c:44:6:ethernet_link_status_updated	0	static
+C:/Users/Nick/STM32CubeIDE/workspace/LwIP_HTTP_Server_Netconn_RTOS/Src/app_ethernet.c:73:6:DHCP_Thread	48	static

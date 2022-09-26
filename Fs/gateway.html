@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Gateway</title>
+</head>
+
+<body style="color: black; background-color: white;">
+    <div class="container">
+        <form id="fm_User" method="POST">
+            <div class="row">
+                <div class="col">
+                    Gateway Name
+                </div>
+                <div class="col">
+                    <input type="text" value="" id="txt_gatewayName" name="txt_gatewayName" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    Ip Address
+                </div>
+                <div class="col">
+                    <input type="text" value="" id="txt_ipAddress" name="txt_ipAddress" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    Netmask
+                </div>
+                <div class="col">
+                    <input type="text" value="" id="txt_netmask" name="txt_netmask" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    Port
+                </div>
+                <div class="col">
+                    <input type="text" value="" id="txt_port" name="txt_port" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">&nbsp;
+                </div>
+                <div class="col">
+                    <input type="button" value="送出" />
+                    <input name="_method" value="POST" hidden />
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+<script>
+var xhttp = new XMLHttpRequest();
+xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        let config = JSON.parse(xhttp.responseText);
+        document.getElementById("txt_gatewayName").value = config.gatewayName;
+        document.getElementById("txt_ipAddress").value = config.ipAddress;
+        document.getElementById("txt_netmask").value = config.netmask;
+        document.getElementById("txt_port").value = config.port;
+    }
+};
+xhttp.open("GET", "/Fs/config.json", true);
+xhttp.send();
+
+</script>
+</html>
