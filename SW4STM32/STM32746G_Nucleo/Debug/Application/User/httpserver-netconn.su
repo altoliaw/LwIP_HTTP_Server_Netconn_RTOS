@@ -1,4 +1,5 @@
-C:/Users/Nick/STM32CubeIDE/workspace/LwIP_HTTP_Server_Netconn_RTOS/Src/httpserver-netconn.c:280:6:http_server_netconn_init	16	static
-C:/Users/Nick/STM32CubeIDE/workspace/LwIP_HTTP_Server_Netconn_RTOS/Src/httpserver-netconn.c:291:6:DynWebPage	552	static
-C:/Users/Nick/STM32CubeIDE/workspace/LwIP_HTTP_Server_Netconn_RTOS/Src/httpserver-netconn.c:315:6:DynJson	528	static
-C:/Users/Nick/STM32CubeIDE/workspace/LwIP_HTTP_Server_Netconn_RTOS/Src/httpserver-netconn.c:240:13:http_server_netconn_thread	80	static
+C:/Users/Nick/STM32CubeIDE/workspace/LwIP_HTTP_Server_Netconn_RTOS/Src/httpserver-netconn.c:316:6:http_server_netconn_init	16	static
+C:/Users/Nick/STM32CubeIDE/workspace/LwIP_HTTP_Server_Netconn_RTOS/Src/httpserver-netconn.c:327:6:DynWebPage	552	static
+C:/Users/Nick/STM32CubeIDE/workspace/LwIP_HTTP_Server_Netconn_RTOS/Src/httpserver-netconn.c:357:6:DynJson	528	static
+C:/Users/Nick/STM32CubeIDE/workspace/LwIP_HTTP_Server_Netconn_RTOS/Src/httpserver-netconn.c:382:6:DynRedirect	272	static
+C:/Users/Nick/STM32CubeIDE/workspace/LwIP_HTTP_Server_Netconn_RTOS/Src/httpserver-netconn.c:276:13:http_server_netconn_thread	120	static

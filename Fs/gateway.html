@@ -8,15 +8,7 @@
 
 <body style="color: black; background-color: white;">
     <div class="container">
-        <form id="fm_User" method="POST">
-            <div class="row">
-                <div class="col">
-                    Gateway Name
-                </div>
-                <div class="col">
-                    <input type="text" value="" id="txt_gatewayName" name="txt_gatewayName" />
-                </div>
-            </div>
+        <form id="fm_User" action="/save" method="POST">
             <div class="row">
                 <div class="col">
                     Ip Address
@@ -42,11 +34,18 @@
                 </div>
             </div>
             <div class="row">
+                <div class="col">
+                    &nbsp;
+                </div>
+                <div class="col">
+                    <input type="hidden" value="" id="txt_gatewayName" name="txt_gatewayName" />
+                </div>
+            </div>
+            <div class="row">
                 <div class="col">&nbsp;
                 </div>
                 <div class="col">
-                    <input type="button" value="送出" />
-                    <input name="_method" value="POST" hidden />
+                    <input type="submit" value="送出" />
                 </div>
             </div>
         </form>
@@ -57,7 +56,6 @@ var xhttp = new XMLHttpRequest();
 xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
         let config = JSON.parse(xhttp.responseText);
-        document.getElementById("txt_gatewayName").value = config.gatewayName;
         document.getElementById("txt_ipAddress").value = config.ipAddress;
         document.getElementById("txt_netmask").value = config.netmask;
         document.getElementById("txt_port").value = config.port;
