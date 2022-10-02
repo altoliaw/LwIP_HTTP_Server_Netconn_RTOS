@@ -4,7 +4,6 @@
 #include "lwip/api.h"
 
 void http_server_netconn_init(void);
-void DynWebPage(struct netconn *conn);
 void DynJson(struct netconn *conn);
 void DynRedirect(struct netconn *conn);
 
