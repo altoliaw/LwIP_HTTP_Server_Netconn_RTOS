@@ -1,5 +1,5 @@
 <?php
-$fp = fopen('gateway.html', 'r');
+$fp = fopen('404.html', 'r');
 
 $output = [];
 while (false !== ($char = fgetc($fp))) {

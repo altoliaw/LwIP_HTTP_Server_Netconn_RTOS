@@ -1,1 +1,2 @@
 # LwIP_HTTP_Server_Netconn_RTOS
+IP: 192.168.1.101

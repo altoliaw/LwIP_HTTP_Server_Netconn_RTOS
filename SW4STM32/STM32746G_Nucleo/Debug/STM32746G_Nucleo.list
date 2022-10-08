@@ -7,21 +7,21 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
   1 .text         0000e370  080001d0  080001d0  000101d0  2**4
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  2 .rodata       00004724  0800e540  0800e540  0001e540  2**2
+  2 .rodata       000046d8  0800e540  0800e540  0001e540  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
-  3 .ARM          00000008  08012c64  08012c64  00022c64  2**2
+  3 .ARM          00000008  08012c18  08012c18  00022c18  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
-  4 .init_array   00000004  08012c6c  08012c6c  00022c6c  2**2
+  4 .init_array   00000004  08012c20  08012c20  00022c20  2**2
                   CONTENTS, ALLOC, LOAD, DATA
-  5 .fini_array   00000004  08012c70  08012c70  00022c70  2**2
+  5 .fini_array   00000004  08012c24  08012c24  00022c24  2**2
                   CONTENTS, ALLOC, LOAD, DATA
-  6 .data         000000a4  20000000  08012c74  00030000  2**2
+  6 .data         000000a4  20000000  08012c28  00030000  2**2
                   CONTENTS, ALLOC, LOAD, DATA
-  7 .TxDecripSection 000000a0  200000a4  08012d18  000300a4  2**2
+  7 .TxDecripSection 000000a0  200000a4  08012ccc  000300a4  2**2
                   CONTENTS, ALLOC, LOAD, DATA
-  8 .bss          0000e33c  20000144  08012db8  00030144  2**2
+  8 .bss          0000e33c  20000144  08012d6c  00030144  2**2
                   ALLOC
-  9 ._user_heap_stack 00000660  2000e480  08012db8  0003e480  2**0
+  9 ._user_heap_stack 00000660  2000e480  08012d6c  0003e480  2**0
                   ALLOC
  10 .ARM.attributes 00000030  00000000  00000000  00030144  2**0
                   CONTENTS, READONLY
@@ -509,7 +509,7 @@ LoopFillZerobss:
   ldr   sp, =_estack      /* set stack pointer */
  800061c:	20050000 	.word	0x20050000
   ldr  r3, =_sidata
- 8000620:	08012c74 	.word	0x08012c74
+ 8000620:	08012c28 	.word	0x08012c28
   ldr  r0, =_sdata
  8000624:	20000000 	.word	0x20000000
   ldr  r3, =_edata
@@ -1340,9 +1340,9 @@ int32_t ETH_PHY_IO_DeInit (void)
  8000a88:	4620      	mov	r0, r4
  8000a8a:	f008 fa15 	bl	8008eb8 <netif_set_link_up>
  8000a8e:	e7cd      	b.n	8000a2c <ethernetif_init+0xf4>
- 8000a90:	0800f581 	.word	0x0800f581
- 8000a94:	08010430 	.word	0x08010430
- 8000a98:	0800f5d5 	.word	0x0800f5d5
+ 8000a90:	0800f533 	.word	0x0800f533
+ 8000a94:	080103e2 	.word	0x080103e2
+ 8000a98:	0800f587 	.word	0x0800f587
  8000a9c:	0800e540 	.word	0x0800e540
  8000aa0:	08007709 	.word	0x08007709
  8000aa4:	20000168 	.word	0x20000168
@@ -1716,7 +1716,7 @@ void http_server_netconn_init()
  8000d3a:	f85d fb04 	ldr.w	pc, [sp], #4
  8000d3e:	bf00      	nop
  8000d40:	08000ead 	.word	0x08000ead
- 8000d44:	0800f5fd 	.word	0x0800f5fd
+ 8000d44:	0800f5af 	.word	0x0800f5af
 
 08000d48 <DynJson>:
   * @brief  Create and send a dynamic Json file.
@@ -1789,15 +1789,15 @@ void DynJson(struct netconn *conn)
 }
  8000dba:	f50d 7d02 	add.w	sp, sp, #520	; 0x208
  8000dbe:	bd10      	pop	{r4, pc}
- 8000dc0:	0800f602 	.word	0x0800f602
- 8000dc4:	0800f613 	.word	0x0800f613
- 8000dc8:	0800f618 	.word	0x0800f618
- 8000dcc:	0800f628 	.word	0x0800f628
- 8000dd0:	0800f636 	.word	0x0800f636
- 8000dd4:	0800f644 	.word	0x0800f644
- 8000dd8:	0800f652 	.word	0x0800f652
- 8000ddc:	0800f65d 	.word	0x0800f65d
- 8000de0:	0800f660 	.word	0x0800f660
+ 8000dc0:	0800f5b4 	.word	0x0800f5b4
+ 8000dc4:	0800f5c5 	.word	0x0800f5c5
+ 8000dc8:	0800f5ca 	.word	0x0800f5ca
+ 8000dcc:	0800f5da 	.word	0x0800f5da
+ 8000dd0:	0800f5e8 	.word	0x0800f5e8
+ 8000dd4:	0800f5f6 	.word	0x0800f5f6
+ 8000dd8:	0800f604 	.word	0x0800f604
+ 8000ddc:	0800f60f 	.word	0x0800f60f
+ 8000de0:	0800f612 	.word	0x0800f612
 
 08000de4 <DynRedirect>:
   * @brief  Create and send a dynamic Json file.
@@ -1887,19 +1887,19 @@ void DynRedirect(struct netconn *conn)
  8000e72:	b042      	add	sp, #264	; 0x108
  8000e74:	bd10      	pop	{r4, pc}
  8000e76:	bf00      	nop
- 8000e78:	0800f663 	.word	0x0800f663
- 8000e7c:	0800f673 	.word	0x0800f673
- 8000e80:	0800f684 	.word	0x0800f684
- 8000e84:	0800f68b 	.word	0x0800f68b
- 8000e88:	0800f6a6 	.word	0x0800f6a6
- 8000e8c:	0800f6ba 	.word	0x0800f6ba
- 8000e90:	0800f6c2 	.word	0x0800f6c2
- 8000e94:	0800f6c9 	.word	0x0800f6c9
- 8000e98:	0800f6d1 	.word	0x0800f6d1
- 8000e9c:	0800f6da 	.word	0x0800f6da
- 8000ea0:	0800f6eb 	.word	0x0800f6eb
- 8000ea4:	0800f712 	.word	0x0800f712
- 8000ea8:	0800f71c 	.word	0x0800f71c
+ 8000e78:	0800f615 	.word	0x0800f615
+ 8000e7c:	0800f625 	.word	0x0800f625
+ 8000e80:	0800f636 	.word	0x0800f636
+ 8000e84:	0800f63d 	.word	0x0800f63d
+ 8000e88:	0800f658 	.word	0x0800f658
+ 8000e8c:	0800f66c 	.word	0x0800f66c
+ 8000e90:	0800f674 	.word	0x0800f674
+ 8000e94:	0800f67b 	.word	0x0800f67b
+ 8000e98:	0800f683 	.word	0x0800f683
+ 8000e9c:	0800f68c 	.word	0x0800f68c
+ 8000ea0:	0800f69d 	.word	0x0800f69d
+ 8000ea4:	0800f6c4 	.word	0x0800f6c4
+ 8000ea8:	0800f6ce 	.word	0x0800f6ce
 
 08000eac <http_server_netconn_thread>:
   conn = netconn_new(NETCONN_TCP);
@@ -2117,17 +2117,17 @@ void DynRedirect(struct netconn *conn)
  800104c:	b017      	add	sp, #92	; 0x5c
  800104e:	e8bd 8ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}
  8001052:	bf00      	nop
- 8001054:	0800f724 	.word	0x0800f724
- 8001058:	0800f72a 	.word	0x0800f72a
- 800105c:	0800f72e 	.word	0x0800f72e
- 8001060:	0800f73c 	.word	0x0800f73c
- 8001064:	0800f750 	.word	0x0800f750
- 8001068:	0800f76c 	.word	0x0800f76c
- 800106c:	0800f77b 	.word	0x0800f77b
- 8001070:	0800f788 	.word	0x0800f788
- 8001074:	0800f792 	.word	0x0800f792
- 8001078:	0800f75a 	.word	0x0800f75a
- 800107c:	0800f761 	.word	0x0800f761
+ 8001054:	0800f6d6 	.word	0x0800f6d6
+ 8001058:	0800f6dc 	.word	0x0800f6dc
+ 800105c:	0800f6e0 	.word	0x0800f6e0
+ 8001060:	0800f6ee 	.word	0x0800f6ee
+ 8001064:	0800f702 	.word	0x0800f702
+ 8001068:	0800f71e 	.word	0x0800f71e
+ 800106c:	0800f72d 	.word	0x0800f72d
+ 8001070:	0800f73a 	.word	0x0800f73a
+ 8001074:	0800f744 	.word	0x0800f744
+ 8001078:	0800f70c 	.word	0x0800f70c
+ 800107c:	0800f713 	.word	0x0800f713
 
 08001080 <StartThread>:
   * @retval None
@@ -9107,7 +9107,7 @@ const TickType_t xConstTickCount = xTickCount;
  8003a64:	bd30      	pop	{r4, r5, pc}
  8003a66:	bf00      	nop
  8003a68:	20004018 	.word	0x20004018
- 8003a6c:	0800f7a3 	.word	0x0800f7a3
+ 8003a6c:	0800f755 	.word	0x0800f755
  8003a70:	08003775 	.word	0x08003775
 
 08003a74 <vTaskSuspendAll>:
@@ -11335,9 +11335,9 @@ netconn_tcp_recvd_msg(struct netconn *conn, size_t len, struct api_msg *msg)
  800484c:	bd08      	pop	{r3, pc}
  800484e:	bf00      	nop
  8004850:	08005b79 	.word	0x08005b79
- 8004854:	0800f7b7 	.word	0x0800f7b7
- 8004858:	0800f829 	.word	0x0800f829
- 800485c:	0800f5d5 	.word	0x0800f5d5
+ 8004854:	0800f769 	.word	0x0800f769
+ 8004858:	0800f7db 	.word	0x0800f7db
+ 800485c:	0800f587 	.word	0x0800f587
 
 08004860 <netconn_close_shutdown>:
  * @param how fully close or only shutdown one side?
@@ -11383,9 +11383,9 @@ netconn_close_shutdown(struct netconn *conn, u8_t how)
  800488e:	f7ff ffbb 	bl	8004808 <netconn_apimsg>
   return err;
  8004892:	e7f1      	b.n	8004878 <netconn_close_shutdown+0x18>
- 8004894:	0800f7b7 	.word	0x0800f7b7
- 8004898:	0800f84d 	.word	0x0800f84d
- 800489c:	0800f5d5 	.word	0x0800f5d5
+ 8004894:	0800f769 	.word	0x0800f769
+ 8004898:	0800f7ff 	.word	0x0800f7ff
+ 800489c:	0800f587 	.word	0x0800f587
  80048a0:	08005c7d 	.word	0x08005c7d
 
 080048a4 <netconn_new_with_proto_and_callback>:
@@ -11468,12 +11468,12 @@ netconn_close_shutdown(struct netconn *conn, u8_t how)
  8004938:	bd70      	pop	{r4, r5, r6, pc}
  800493a:	bf00      	nop
  800493c:	08005691 	.word	0x08005691
- 8004940:	0800f7b7 	.word	0x0800f7b7
- 8004944:	0800f869 	.word	0x0800f869
- 8004948:	0800f5d5 	.word	0x0800f5d5
- 800494c:	0800f88a 	.word	0x0800f88a
- 8004950:	0800f89f 	.word	0x0800f89f
- 8004954:	0800f8c0 	.word	0x0800f8c0
+ 8004940:	0800f769 	.word	0x0800f769
+ 8004944:	0800f81b 	.word	0x0800f81b
+ 8004948:	0800f587 	.word	0x0800f587
+ 800494c:	0800f83c 	.word	0x0800f83c
+ 8004950:	0800f851 	.word	0x0800f851
+ 8004954:	0800f872 	.word	0x0800f872
 
 08004958 <netconn_prepare_delete>:
 {
@@ -11552,9 +11552,9 @@ netconn_close_shutdown(struct netconn *conn, u8_t how)
  80049c6:	f7ff ff1f 	bl	8004808 <netconn_apimsg>
   return err;
  80049ca:	e7ef      	b.n	80049ac <netconn_bind+0x18>
- 80049cc:	0800f7b7 	.word	0x0800f7b7
- 80049d0:	0800f933 	.word	0x0800f933
- 80049d4:	0800f5d5 	.word	0x0800f5d5
+ 80049cc:	0800f769 	.word	0x0800f769
+ 80049d0:	0800f8e5 	.word	0x0800f8e5
+ 80049d4:	0800f587 	.word	0x0800f587
  80049d8:	0800e614 	.word	0x0800e614
  80049dc:	08005a8d 	.word	0x08005a8d
 
@@ -11582,9 +11582,9 @@ netconn_close_shutdown(struct netconn *conn, u8_t how)
   return err;
  8004a08:	e7f6      	b.n	80049f8 <netconn_listen_with_backlog+0x18>
  8004a0a:	bf00      	nop
- 8004a0c:	0800f7b7 	.word	0x0800f7b7
- 8004a10:	0800f9ab 	.word	0x0800f9ab
- 8004a14:	0800f5d5 	.word	0x0800f5d5
+ 8004a0c:	0800f769 	.word	0x0800f769
+ 8004a10:	0800f95d 	.word	0x0800f95d
+ 8004a14:	0800f587 	.word	0x0800f587
  8004a18:	08005ac1 	.word	0x08005ac1
 
 08004a1c <netconn_write_vectors_partly>:
@@ -11694,12 +11694,12 @@ netconn_close_shutdown(struct netconn *conn, u8_t how)
  8004ad4:	4803      	ldr	r0, [pc, #12]	; (8004ae4 <netconn_write_vectors_partly+0xc8>)
  8004ad6:	f008 fc7d 	bl	800d3d4 <iprintf>
  8004ada:	e7ad      	b.n	8004a38 <netconn_write_vectors_partly+0x1c>
- 8004adc:	0800f7b7 	.word	0x0800f7b7
- 8004ae0:	0800f9e3 	.word	0x0800f9e3
- 8004ae4:	0800f5d5 	.word	0x0800f5d5
- 8004ae8:	0800f9ff 	.word	0x0800f9ff
+ 8004adc:	0800f769 	.word	0x0800f769
+ 8004ae0:	0800f995 	.word	0x0800f995
+ 8004ae4:	0800f587 	.word	0x0800f587
+ 8004ae8:	0800f9b1 	.word	0x0800f9b1
  8004aec:	08005bb1 	.word	0x08005bb1
- 8004af0:	0800fa21 	.word	0x0800fa21
+ 8004af0:	0800f9d3 	.word	0x0800f9d3
 
 08004af4 <netconn_write_partly>:
 {
@@ -11847,10 +11847,10 @@ netconn_err(struct netconn *conn)
   return ERR_OK;
  8004bcc:	e7bd      	b.n	8004b4a <netconn_accept+0x1a>
  8004bce:	bf00      	nop
- 8004bd0:	0800f7b7 	.word	0x0800f7b7
- 8004bd4:	0800fa44 	.word	0x0800fa44
- 8004bd8:	0800f5d5 	.word	0x0800f5d5
- 8004bdc:	0800fa64 	.word	0x0800fa64
+ 8004bd0:	0800f769 	.word	0x0800f769
+ 8004bd4:	0800f9f6 	.word	0x0800f9f6
+ 8004bd8:	0800f587 	.word	0x0800f587
+ 8004bdc:	0800fa16 	.word	0x0800fa16
 
 08004be0 <netconn_recv_data>:
   void *buf = NULL;
@@ -11977,11 +11977,11 @@ netconn_err(struct netconn *conn)
  8004cb2:	9b01      	ldr	r3, [sp, #4]
  8004cb4:	681b      	ldr	r3, [r3, #0]
  8004cb6:	e7ea      	b.n	8004c8e <netconn_recv_data+0xae>
- 8004cb8:	0800f7b7 	.word	0x0800f7b7
- 8004cbc:	0800fa81 	.word	0x0800fa81
- 8004cc0:	0800f5d5 	.word	0x0800f5d5
- 8004cc4:	0800fa9f 	.word	0x0800fa9f
- 8004cc8:	0800faba 	.word	0x0800faba
+ 8004cb8:	0800f769 	.word	0x0800f769
+ 8004cbc:	0800fa33 	.word	0x0800fa33
+ 8004cc0:	0800f587 	.word	0x0800f587
+ 8004cc4:	0800fa51 	.word	0x0800fa51
+ 8004cc8:	0800fa6c 	.word	0x0800fa6c
 
 08004ccc <netconn_recv_data_tcp>:
 {
@@ -12163,11 +12163,11 @@ netconn_err(struct netconn *conn)
     return netconn_recv_data(conn, (void **)new_buf, 0);
  8004dee:	f7ff bef7 	b.w	8004be0 <netconn_recv_data>
  8004df2:	bf00      	nop
- 8004df4:	0800f7b7 	.word	0x0800f7b7
- 8004df8:	0800fa81 	.word	0x0800fa81
- 8004dfc:	0800f5d5 	.word	0x0800f5d5
- 8004e00:	0800fa9f 	.word	0x0800fa9f
- 8004e04:	080111e3 	.word	0x080111e3
+ 8004df4:	0800f769 	.word	0x0800f769
+ 8004df8:	0800fa33 	.word	0x0800fa33
+ 8004dfc:	0800f587 	.word	0x0800f587
+ 8004e00:	0800fa51 	.word	0x0800fa51
+ 8004e04:	08011195 	.word	0x08011195
 
 08004e08 <recv_udp>:
  * @see udp.h (struct udp_pcb.recv) for parameters
@@ -12282,11 +12282,11 @@ recv_udp(void *arg, struct udp_pcb *pcb, struct pbuf *p,
 }
  8004eaa:	b003      	add	sp, #12
  8004eac:	e8bd 83f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, pc}
- 8004eb0:	0800faf0 	.word	0x0800faf0
- 8004eb4:	0800fb62 	.word	0x0800fb62
- 8004eb8:	0800f5d5 	.word	0x0800f5d5
- 8004ebc:	0800fb84 	.word	0x0800fb84
- 8004ec0:	0800fba3 	.word	0x0800fba3
+ 8004eb0:	0800faa2 	.word	0x0800faa2
+ 8004eb4:	0800fb14 	.word	0x0800fb14
+ 8004eb8:	0800f587 	.word	0x0800f587
+ 8004ebc:	0800fb36 	.word	0x0800fb36
+ 8004ec0:	0800fb55 	.word	0x0800fb55
 
 08004ec4 <setup_tcp>:
  *
@@ -12682,15 +12682,15 @@ err_mem:
  8005132:	4638      	mov	r0, r7
  8005134:	e7ef      	b.n	8005116 <lwip_netconn_do_writemore+0x20e>
  8005136:	bf00      	nop
- 8005138:	0800faf0 	.word	0x0800faf0
- 800513c:	0800fc3a 	.word	0x0800fc3a
- 8005140:	0800f5d5 	.word	0x0800f5d5
- 8005144:	0800fc47 	.word	0x0800fc47
- 8005148:	0800fc64 	.word	0x0800fc64
- 800514c:	0800fc7e 	.word	0x0800fc7e
- 8005150:	0800fc94 	.word	0x0800fc94
- 8005154:	0800fcd3 	.word	0x0800fcd3
- 8005158:	0800fcfb 	.word	0x0800fcfb
+ 8005138:	0800faa2 	.word	0x0800faa2
+ 800513c:	0800fbec 	.word	0x0800fbec
+ 8005140:	0800f587 	.word	0x0800f587
+ 8005144:	0800fbf9 	.word	0x0800fbf9
+ 8005148:	0800fc16 	.word	0x0800fc16
+ 800514c:	0800fc30 	.word	0x0800fc30
+ 8005150:	0800fc46 	.word	0x0800fc46
+ 8005154:	0800fc85 	.word	0x0800fc85
+ 8005158:	0800fcad 	.word	0x0800fcad
 
 0800515c <lwip_netconn_do_close_internal>:
 {
@@ -12936,14 +12936,14 @@ err_mem:
     return ERR_OK;
  8005314:	464e      	mov	r6, r9
  8005316:	e7db      	b.n	80052d0 <lwip_netconn_do_close_internal+0x174>
- 8005318:	0800faf0 	.word	0x0800faf0
- 800531c:	0800f9d6 	.word	0x0800f9d6
- 8005320:	0800f5d5 	.word	0x0800f5d5
- 8005324:	0800fd26 	.word	0x0800fd26
- 8005328:	0800fd44 	.word	0x0800fd44
- 800532c:	0800fd68 	.word	0x0800fd68
- 8005330:	0800fc64 	.word	0x0800fc64
- 8005334:	0800fd7b 	.word	0x0800fd7b
+ 8005318:	0800faa2 	.word	0x0800faa2
+ 800531c:	0800f988 	.word	0x0800f988
+ 8005320:	0800f587 	.word	0x0800f587
+ 8005324:	0800fcd8 	.word	0x0800fcd8
+ 8005328:	0800fcf6 	.word	0x0800fcf6
+ 800532c:	0800fd1a 	.word	0x0800fd1a
+ 8005330:	0800fc16 	.word	0x0800fc16
+ 8005334:	0800fd2d 	.word	0x0800fd2d
  8005338:	080053c1 	.word	0x080053c1
  800533c:	08005345 	.word	0x08005345
  8005340:	08005501 	.word	0x08005501
@@ -13010,9 +13010,9 @@ err_mem:
  80053ac:	f7ff fed6 	bl	800515c <lwip_netconn_do_close_internal>
  80053b0:	e7d8      	b.n	8005364 <poll_tcp+0x20>
  80053b2:	bf00      	nop
- 80053b4:	0800faf0 	.word	0x0800faf0
- 80053b8:	0800fc3a 	.word	0x0800fc3a
- 80053bc:	0800f5d5 	.word	0x0800f5d5
+ 80053b4:	0800faa2 	.word	0x0800faa2
+ 80053b8:	0800fbec 	.word	0x0800fbec
+ 80053bc:	0800f587 	.word	0x0800f587
 
 080053c0 <sent_tcp>:
 {
@@ -13068,9 +13068,9 @@ err_mem:
   return ERR_OK;
  8005420:	e7d9      	b.n	80053d6 <sent_tcp+0x16>
  8005422:	bf00      	nop
- 8005424:	0800faf0 	.word	0x0800faf0
- 8005428:	0800fc3a 	.word	0x0800fc3a
- 800542c:	0800f5d5 	.word	0x0800f5d5
+ 8005424:	0800faa2 	.word	0x0800faa2
+ 8005428:	0800fbec 	.word	0x0800fbec
+ 800542c:	0800f587 	.word	0x0800f587
 
 08005430 <recv_tcp>:
 {
@@ -13167,13 +13167,13 @@ err_mem:
  80054de:	2400      	movs	r4, #0
  80054e0:	e7bf      	b.n	8005462 <recv_tcp+0x32>
  80054e2:	bf00      	nop
- 80054e4:	0800faf0 	.word	0x0800faf0
- 80054e8:	0800fd9e 	.word	0x0800fd9e
- 80054ec:	0800f5d5 	.word	0x0800f5d5
- 80054f0:	0800fdc0 	.word	0x0800fdc0
+ 80054e4:	0800faa2 	.word	0x0800faa2
+ 80054e8:	0800fd50 	.word	0x0800fd50
+ 80054ec:	0800f587 	.word	0x0800f587
+ 80054f0:	0800fd72 	.word	0x0800fd72
  80054f4:	0800e5f8 	.word	0x0800e5f8
- 80054f8:	0800fddf 	.word	0x0800fddf
- 80054fc:	0800fdf7 	.word	0x0800fdf7
+ 80054f8:	0800fd91 	.word	0x0800fd91
+ 80054fc:	0800fda9 	.word	0x0800fda9
 
 08005500 <err_tcp>:
 {
@@ -13339,14 +13339,14 @@ err_mem:
 }
  800561a:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
  800561e:	bf00      	nop
- 8005620:	0800faf0 	.word	0x0800faf0
- 8005624:	0800fc3a 	.word	0x0800fc3a
- 8005628:	0800f5d5 	.word	0x0800f5d5
+ 8005620:	0800faa2 	.word	0x0800faa2
+ 8005624:	0800fbec 	.word	0x0800fbec
+ 8005628:	0800f587 	.word	0x0800f587
  800562c:	0800e5f8 	.word	0x0800e5f8
- 8005630:	0800fc64 	.word	0x0800fc64
- 8005634:	0800fe25 	.word	0x0800fe25
- 8005638:	0800fe15 	.word	0x0800fe15
- 800563c:	0800fe3e 	.word	0x0800fe3e
+ 8005630:	0800fc16 	.word	0x0800fc16
+ 8005634:	0800fdd7 	.word	0x0800fdd7
+ 8005638:	0800fdc7 	.word	0x0800fdc7
+ 800563c:	0800fdf0 	.word	0x0800fdf0
 
 08005640 <lwip_netconn_is_err_msg>:
 {
@@ -13390,9 +13390,9 @@ err_mem:
  800567a:	2000      	movs	r0, #0
  800567c:	e7f2      	b.n	8005664 <lwip_netconn_is_err_msg+0x24>
  800567e:	bf00      	nop
- 8005680:	0800faf0 	.word	0x0800faf0
- 8005684:	0800fe58 	.word	0x0800fe58
- 8005688:	0800f5d5 	.word	0x0800f5d5
+ 8005680:	0800faa2 	.word	0x0800faa2
+ 8005684:	0800fe0a 	.word	0x0800fe0a
+ 8005688:	0800f587 	.word	0x0800f587
  800568c:	0800e5f8 	.word	0x0800e5f8
 
 08005690 <lwip_netconn_do_newconn>:
@@ -13536,9 +13536,9 @@ err_mem:
 }
  8005764:	4620      	mov	r0, r4
  8005766:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
- 8005768:	0800faf0 	.word	0x0800faf0
- 800576c:	0800fe64 	.word	0x0800fe64
- 8005770:	0800f5d5 	.word	0x0800f5d5
+ 8005768:	0800faa2 	.word	0x0800faa2
+ 800576c:	0800fe16 	.word	0x0800fe16
+ 8005770:	0800f587 	.word	0x0800f587
 
 08005774 <netconn_free>:
   LWIP_ASSERT("PCB must be deallocated outside this function", conn->pcb.tcp == NULL);
@@ -13586,11 +13586,11 @@ err_mem:
  80057d0:	e8bd 4010 	ldmia.w	sp!, {r4, lr}
   memp_free(MEMP_NETCONN, conn);
  80057d4:	f003 ba10 	b.w	8008bf8 <memp_free>
- 80057d8:	0800faf0 	.word	0x0800faf0
- 80057dc:	0800fe8a 	.word	0x0800fe8a
- 80057e0:	0800f5d5 	.word	0x0800f5d5
- 80057e4:	0800feb8 	.word	0x0800feb8
- 80057e8:	0800fef2 	.word	0x0800fef2
+ 80057d8:	0800faa2 	.word	0x0800faa2
+ 80057dc:	0800fe3c 	.word	0x0800fe3c
+ 80057e0:	0800f587 	.word	0x0800f587
+ 80057e4:	0800fe6a 	.word	0x0800fe6a
+ 80057e8:	0800fea4 	.word	0x0800fea4
 
 080057ec <netconn_drain>:
 {
@@ -13807,9 +13807,9 @@ err_mem:
  800596c:	e795      	b.n	800589a <accept_function+0xe>
  800596e:	bf00      	nop
  8005970:	0800e608 	.word	0x0800e608
- 8005974:	0800faf0 	.word	0x0800faf0
- 8005978:	0800ff2e 	.word	0x0800ff2e
- 800597c:	0800f5d5 	.word	0x0800f5d5
+ 8005974:	0800faa2 	.word	0x0800faa2
+ 8005978:	0800fee0 	.word	0x0800fee0
+ 800597c:	0800f587 	.word	0x0800f587
 
 08005980 <lwip_netconn_do_delconn>:
   enum netconn_state state = msg->conn->state;
@@ -13953,11 +13953,11 @@ err_mem:
 }
  8005a70:	bd70      	pop	{r4, r5, r6, pc}
  8005a72:	bf00      	nop
- 8005a74:	0800faf0 	.word	0x0800faf0
- 8005a78:	0800ff55 	.word	0x0800ff55
- 8005a7c:	0800f5d5 	.word	0x0800f5d5
- 8005a80:	0800ff69 	.word	0x0800ff69
- 8005a84:	0800ff84 	.word	0x0800ff84
+ 8005a74:	0800faa2 	.word	0x0800faa2
+ 8005a78:	0800ff07 	.word	0x0800ff07
+ 8005a7c:	0800f587 	.word	0x0800f587
+ 8005a80:	0800ff1b 	.word	0x0800ff1b
+ 8005a84:	0800ff36 	.word	0x0800ff36
  8005a88:	2000a550 	.word	0x2000a550
 
 08005a8c <lwip_netconn_do_bind>:
@@ -14258,11 +14258,11 @@ lwip_netconn_do_write(void *m)
         err = ERR_CONN;
  8005c5e:	f06f 000a 	mvn.w	r0, #10
  8005c62:	e7f7      	b.n	8005c54 <lwip_netconn_do_write+0xa4>
- 8005c64:	0800faf0 	.word	0x0800faf0
- 8005c68:	0800ff69 	.word	0x0800ff69
- 8005c6c:	0800f5d5 	.word	0x0800f5d5
- 8005c70:	0800ffa0 	.word	0x0800ffa0
- 8005c74:	0800ff84 	.word	0x0800ff84
+ 8005c64:	0800faa2 	.word	0x0800faa2
+ 8005c68:	0800ff1b 	.word	0x0800ff1b
+ 8005c6c:	0800f587 	.word	0x0800f587
+ 8005c70:	0800ff52 	.word	0x0800ff52
+ 8005c74:	0800ff36 	.word	0x0800ff36
  8005c78:	2000a550 	.word	0x2000a550
 
 08005c7c <lwip_netconn_do_close>:
@@ -14388,10 +14388,10 @@ lwip_netconn_do_close(void *m)
         LWIP_ASSERT("state!", msg->conn->state == NETCONN_NONE);
  8005d1e:	f007 bb59 	b.w	800d3d4 <iprintf>
  8005d22:	bf00      	nop
- 8005d24:	0800faf0 	.word	0x0800faf0
- 8005d28:	0800ff69 	.word	0x0800ff69
- 8005d2c:	0800f5d5 	.word	0x0800f5d5
- 8005d30:	0800ff84 	.word	0x0800ff84
+ 8005d24:	0800faa2 	.word	0x0800faa2
+ 8005d28:	0800ff1b 	.word	0x0800ff1b
+ 8005d2c:	0800f587 	.word	0x0800f587
+ 8005d30:	0800ff36 	.word	0x0800ff36
  8005d34:	2000a550 	.word	0x2000a550
 
 08005d38 <netbuf_delete>:
@@ -14482,11 +14482,11 @@ netbuf_data(struct netbuf *buf, void **dataptr, u16_t *len)
  8005d98:	f06f 0001 	mvn.w	r0, #1
  8005d9c:	e7e8      	b.n	8005d70 <netbuf_data+0x14>
  8005d9e:	bf00      	nop
- 8005da0:	0800ffc9 	.word	0x0800ffc9
- 8005da4:	080100df 	.word	0x080100df
- 8005da8:	0800f5d5 	.word	0x0800f5d5
- 8005dac:	080100f8 	.word	0x080100f8
- 8005db0:	08010115 	.word	0x08010115
+ 8005da0:	0800ff7b 	.word	0x0800ff7b
+ 8005da4:	08010091 	.word	0x08010091
+ 8005da8:	0800f587 	.word	0x0800f587
+ 8005dac:	080100aa 	.word	0x080100aa
+ 8005db0:	080100c7 	.word	0x080100c7
 
 08005db4 <tcpip_thread>:
   struct tcpip_msg *msg;
@@ -14611,9 +14611,9 @@ netbuf_data(struct netbuf *buf, void **dataptr, u16_t *len)
  8005e64:	e7c7      	b.n	8005df6 <tcpip_thread+0x42>
  8005e66:	bf00      	nop
  8005e68:	2000a550 	.word	0x2000a550
- 8005e6c:	08010161 	.word	0x08010161
- 8005e70:	080101d1 	.word	0x080101d1
- 8005e74:	0800f5d5 	.word	0x0800f5d5
+ 8005e6c:	08010113 	.word	0x08010113
+ 8005e70:	08010183 	.word	0x08010183
+ 8005e74:	0800f587 	.word	0x0800f587
 
 08005e78 <tcpip_inpkt>:
  * @param inp the network interface on which the packet was received
@@ -14682,9 +14682,9 @@ tcpip_inpkt(struct pbuf *p, struct netif *inp, netif_input_fn input_fn)
 }
  8005ebe:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
  8005ec0:	2000a55c 	.word	0x2000a55c
- 8005ec4:	08010161 	.word	0x08010161
- 8005ec8:	080101ef 	.word	0x080101ef
- 8005ecc:	0800f5d5 	.word	0x0800f5d5
+ 8005ec4:	08010113 	.word	0x08010113
+ 8005ec8:	080101a1 	.word	0x080101a1
+ 8005ecc:	0800f587 	.word	0x0800f587
 
 08005ed0 <tcpip_input>:
  */
@@ -14798,12 +14798,12 @@ tcpip_init(tcpip_init_done_fn initfunc, void *arg)
  8005f5c:	b003      	add	sp, #12
  8005f5e:	bd30      	pop	{r4, r5, pc}
  8005f60:	2000a550 	.word	0x2000a550
- 8005f64:	08010161 	.word	0x08010161
- 8005f68:	080101fc 	.word	0x080101fc
- 8005f6c:	0800f5d5 	.word	0x0800f5d5
- 8005f70:	0801021f 	.word	0x0801021f
+ 8005f64:	08010113 	.word	0x08010113
+ 8005f68:	080101ae 	.word	0x080101ae
+ 8005f6c:	0800f587 	.word	0x0800f587
+ 8005f70:	080101d1 	.word	0x080101d1
  8005f74:	08005db5 	.word	0x08005db5
- 8005f78:	08010240 	.word	0x08010240
+ 8005f78:	080101f2 	.word	0x080101f2
 
 08005f7c <dhcp_set_state>:
  * If the state changed, reset the number of tries.
@@ -14865,9 +14865,9 @@ dhcp_option_short(u16_t options_out_len, u8_t *options, u16_t value)
 }
  8005fb4:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
  8005fb6:	bf00      	nop
- 8005fb8:	08010247 	.word	0x08010247
- 8005fbc:	080102bc 	.word	0x080102bc
- 8005fc0:	0800f5d5 	.word	0x0800f5d5
+ 8005fb8:	080101f9 	.word	0x080101f9
+ 8005fbc:	0801026e 	.word	0x0801026e
+ 8005fc0:	0800f587 	.word	0x0800f587
 
 08005fc4 <dhcp_option>:
 {
@@ -14904,9 +14904,9 @@ dhcp_option_short(u16_t options_out_len, u8_t *options, u16_t value)
  8005ff0:	54ee      	strb	r6, [r5, r3]
 }
  8005ff2:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
- 8005ff4:	08010247 	.word	0x08010247
- 8005ff8:	080102f7 	.word	0x080102f7
- 8005ffc:	0800f5d5 	.word	0x0800f5d5
+ 8005ff4:	080101f9 	.word	0x080101f9
+ 8005ff8:	080102a9 	.word	0x080102a9
+ 8005ffc:	0800f587 	.word	0x0800f587
 
 08006000 <dhcp_option_byte>:
   LWIP_ASSERT("dhcp_option_byte: options_out_len < DHCP_OPTIONS_LEN", options_out_len < DHCP_OPTIONS_LEN);
@@ -14930,9 +14930,9 @@ dhcp_option_short(u16_t options_out_len, u8_t *options, u16_t value)
  800601e:	b280      	uxth	r0, r0
  8006020:	bd70      	pop	{r4, r5, r6, pc}
  8006022:	bf00      	nop
- 8006024:	08010247 	.word	0x08010247
- 8006028:	08010339 	.word	0x08010339
- 800602c:	0800f5d5 	.word	0x0800f5d5
+ 8006024:	080101f9 	.word	0x080101f9
+ 8006028:	080102eb 	.word	0x080102eb
+ 800602c:	0800f587 	.word	0x0800f587
 
 08006030 <dhcp_option_long>:
 
@@ -14983,9 +14983,9 @@ dhcp_option_long(u16_t options_out_len, u8_t *options, u32_t value)
 }
  8006068:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
  800606a:	bf00      	nop
- 800606c:	08010247 	.word	0x08010247
- 8006070:	0801036e 	.word	0x0801036e
- 8006074:	0800f5d5 	.word	0x0800f5d5
+ 800606c:	080101f9 	.word	0x080101f9
+ 8006070:	08010320 	.word	0x08010320
+ 8006074:	0800f587 	.word	0x0800f587
 
 08006078 <dhcp_create_msg>:
  * @param dhcp dhcp control struct
@@ -15140,11 +15140,11 @@ dhcp_create_msg(struct netif *netif, struct dhcp *dhcp, u8_t message_type, u16_t
  8006180:	f8a9 0000 	strh.w	r0, [r9]
  8006184:	e787      	b.n	8006096 <dhcp_create_msg+0x1e>
  8006186:	bf00      	nop
- 8006188:	08010247 	.word	0x08010247
- 800618c:	080103a8 	.word	0x080103a8
- 8006190:	0800f5d5 	.word	0x0800f5d5
- 8006194:	080103c7 	.word	0x080103c7
- 8006198:	080103e5 	.word	0x080103e5
+ 8006188:	080101f9 	.word	0x080101f9
+ 800618c:	0801035a 	.word	0x0801035a
+ 8006190:	0800f587 	.word	0x0800f587
+ 8006194:	08010379 	.word	0x08010379
+ 8006198:	08010397 	.word	0x08010397
  800619c:	2000a560 	.word	0x2000a560
 
 080061a0 <dhcp_option_trailer>:
@@ -15529,10 +15529,10 @@ dhcp_option_trailer(u16_t options_out_len, u8_t *options, struct pbuf *p_out)
       ip4_addr_set_u32(&sn_mask, PP_HTONL(0xffff0000UL));
  80063f6:	f64f 73ff 	movwls	r3, #65535	; 0xffff
  80063fa:	e7d2      	b.n	80063a2 <dhcp_bind+0xa6>
- 80063fc:	08010247 	.word	0x08010247
- 8006400:	08010425 	.word	0x08010425
- 8006404:	0800f5d5 	.word	0x0800f5d5
- 8006408:	0801043e 	.word	0x0801043e
+ 80063fc:	080101f9 	.word	0x080101f9
+ 8006400:	080103d7 	.word	0x080103d7
+ 8006404:	0800f587 	.word	0x0800f587
+ 8006408:	080103f0 	.word	0x080103f0
 
 0800640c <dhcp_inc_pcb_refcount>:
 {
@@ -15587,9 +15587,9 @@ dhcp_option_trailer(u16_t options_out_len, u8_t *options, struct pbuf *p_out)
  800645a:	f04f 30ff 	mov.w	r0, #4294967295
  800645e:	e7fb      	b.n	8006458 <dhcp_inc_pcb_refcount+0x4c>
  8006460:	2000a560 	.word	0x2000a560
- 8006464:	08010247 	.word	0x08010247
- 8006468:	08010456 	.word	0x08010456
- 800646c:	0800f5d5 	.word	0x0800f5d5
+ 8006464:	080101f9 	.word	0x080101f9
+ 8006468:	08010408 	.word	0x08010408
+ 800646c:	0800f587 	.word	0x0800f587
  8006470:	0800e614 	.word	0x0800e614
  8006474:	08006775 	.word	0x08006775
 
@@ -15620,9 +15620,9 @@ dhcp_option_trailer(u16_t options_out_len, u8_t *options, struct pbuf *p_out)
 }
  800649e:	bd38      	pop	{r3, r4, r5, pc}
  80064a0:	2000a560 	.word	0x2000a560
- 80064a4:	08010247 	.word	0x08010247
- 80064a8:	0801047b 	.word	0x0801047b
- 80064ac:	0800f5d5 	.word	0x0800f5d5
+ 80064a4:	080101f9 	.word	0x080101f9
+ 80064a8:	0801042d 	.word	0x0801042d
+ 80064ac:	0800f587 	.word	0x0800f587
 
 080064b0 <dhcp_reboot.isra.0>:
 dhcp_reboot(struct netif *netif)
@@ -15982,10 +15982,10 @@ dhcp_select(struct netif *netif)
 }
  800674e:	b005      	add	sp, #20
  8006750:	e8bd 83f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, pc}
- 8006754:	08010247 	.word	0x08010247
- 8006758:	0801049f 	.word	0x0801049f
- 800675c:	0800f5d5 	.word	0x0800f5d5
- 8006760:	080104ba 	.word	0x080104ba
+ 8006754:	080101f9 	.word	0x080101f9
+ 8006758:	08010451 	.word	0x08010451
+ 800675c:	0800f587 	.word	0x0800f587
+ 8006760:	0801046c 	.word	0x0801046c
  8006764:	0800e614 	.word	0x0800e614
  8006768:	2000a560 	.word	0x2000a560
  800676c:	0800e610 	.word	0x0800e610
@@ -16348,15 +16348,15 @@ dhcp_select(struct netif *netif)
  80069f6:	f7ff fc6b 	bl	80062d0 <dhcp_check>
  80069fa:	e702      	b.n	8006802 <dhcp_recv+0x8e>
  80069fc:	2000a690 	.word	0x2000a690
- 8006a00:	08010247 	.word	0x08010247
- 8006a04:	080104dd 	.word	0x080104dd
- 8006a08:	0800f5d5 	.word	0x0800f5d5
- 8006a0c:	080104d4 	.word	0x080104d4
- 8006a10:	080104ef 	.word	0x080104ef
- 8006a14:	080104f8 	.word	0x080104f8
- 8006a18:	08010533 	.word	0x08010533
- 8006a1c:	0801050f 	.word	0x0801050f
- 8006a20:	08010520 	.word	0x08010520
+ 8006a00:	080101f9 	.word	0x080101f9
+ 8006a04:	0801048f 	.word	0x0801048f
+ 8006a08:	0800f587 	.word	0x0800f587
+ 8006a0c:	08010486 	.word	0x08010486
+ 8006a10:	080104a1 	.word	0x080104a1
+ 8006a14:	080104aa 	.word	0x080104aa
+ 8006a18:	080104e5 	.word	0x080104e5
+ 8006a1c:	080104c1 	.word	0x080104c1
+ 8006a20:	080104d2 	.word	0x080104d2
  8006a24:	2000a560 	.word	0x2000a560
     u32_t overload = dhcp_get_option_value(dhcp, DHCP_OPTION_IDX_OVERLOAD);
  8006a28:	f8d9 3014 	ldr.w	r3, [r9, #20]
@@ -16588,9 +16588,9 @@ dhcp_select(struct netif *netif)
 }
  8006bd4:	bd38      	pop	{r3, r4, r5, pc}
  8006bd6:	bf00      	nop
- 8006bd8:	08010247 	.word	0x08010247
- 8006bdc:	0801056a 	.word	0x0801056a
- 8006be0:	0800f5d5 	.word	0x0800f5d5
+ 8006bd8:	080101f9 	.word	0x080101f9
+ 8006bdc:	0801051c 	.word	0x0801051c
+ 8006be0:	0800f587 	.word	0x0800f587
 
 08006be4 <dhcp_arp_reply>:
 {
@@ -16686,9 +16686,9 @@ dhcp_select(struct netif *netif)
  8006c8a:	b007      	add	sp, #28
  8006c8c:	bdf0      	pop	{r4, r5, r6, r7, pc}
  8006c8e:	bf00      	nop
- 8006c90:	08010247 	.word	0x08010247
- 8006c94:	08010430 	.word	0x08010430
- 8006c98:	0800f5d5 	.word	0x0800f5d5
+ 8006c90:	080101f9 	.word	0x080101f9
+ 8006c94:	080103e2 	.word	0x080103e2
+ 8006c98:	0800f587 	.word	0x0800f587
  8006c9c:	0800e614 	.word	0x0800e614
  8006ca0:	2000a560 	.word	0x2000a560
  8006ca4:	0800e610 	.word	0x0800e610
@@ -17033,10 +17033,10 @@ dhcp_supplied_address(const struct netif *netif)
  8006ef8:	4620      	mov	r0, r4
  8006efa:	f7ff ff57 	bl	8006dac <dhcp_release_and_stop>
  8006efe:	e7cf      	b.n	8006ea0 <dhcp_start+0x38>
- 8006f00:	08010247 	.word	0x08010247
- 8006f04:	08010430 	.word	0x08010430
- 8006f08:	0800f5d5 	.word	0x0800f5d5
- 8006f0c:	0801057e 	.word	0x0801057e
+ 8006f00:	080101f9 	.word	0x080101f9
+ 8006f04:	080103e2 	.word	0x080103e2
+ 8006f08:	0800f587 	.word	0x0800f587
+ 8006f0c:	08010530 	.word	0x08010530
 
 08006f10 <dhcp_coarse_tmr>:
   NETIF_FOREACH(netif) {
@@ -17582,10 +17582,10 @@ etharp_find_entry(const ip4_addr_t *ipaddr, u8_t flags, struct netif *netif)
  8007234:	4675      	mov	r5, lr
  8007236:	e7c4      	b.n	80071c2 <etharp_find_entry+0x92>
  8007238:	2000a594 	.word	0x2000a594
- 800723c:	0801059f 	.word	0x0801059f
- 8007240:	08010616 	.word	0x08010616
- 8007244:	0800f5d5 	.word	0x0800f5d5
- 8007248:	0801062d 	.word	0x0801062d
+ 800723c:	08010551 	.word	0x08010551
+ 8007240:	080105c8 	.word	0x080105c8
+ 8007244:	0800f587 	.word	0x0800f587
+ 8007248:	080105df 	.word	0x080105df
 
 0800724c <etharp_raw>:
 etharp_raw(struct netif *netif, const struct eth_addr *ethsrc_addr,
@@ -17731,11 +17731,11 @@ etharp_raw(struct netif *netif, const struct eth_addr *ethsrc_addr,
     return ERR_MEM;
  800730e:	f04f 30ff 	mov.w	r0, #4294967295
  8007312:	e7f9      	b.n	8007308 <etharp_raw+0xbc>
- 8007314:	0801059f 	.word	0x0801059f
- 8007318:	08010430 	.word	0x08010430
- 800731c:	0800f5d5 	.word	0x0800f5d5
- 8007320:	08010656 	.word	0x08010656
- 8007324:	08010687 	.word	0x08010687
+ 8007314:	08010551 	.word	0x08010551
+ 8007318:	080103e2 	.word	0x080103e2
+ 800731c:	0800f587 	.word	0x0800f587
+ 8007320:	08010608 	.word	0x08010608
+ 8007324:	08010639 	.word	0x08010639
 
 08007328 <etharp_cleanup_netif>:
 {
@@ -17937,10 +17937,10 @@ etharp_raw(struct netif *netif, const struct eth_addr *ethsrc_addr,
       break;
  8007498:	e7e0      	b.n	800745c <etharp_input+0x10c>
  800749a:	bf00      	nop
- 800749c:	0801059f 	.word	0x0801059f
- 80074a0:	08010430 	.word	0x08010430
- 80074a4:	0800f5d5 	.word	0x0800f5d5
- 80074a8:	08010709 	.word	0x08010709
+ 800749c:	08010551 	.word	0x08010551
+ 80074a0:	080103e2 	.word	0x080103e2
+ 80074a4:	0800f587 	.word	0x0800f587
+ 80074a8:	080106bb 	.word	0x080106bb
  80074ac:	2000a594 	.word	0x2000a594
 
 080074b0 <etharp_request>:
@@ -18123,9 +18123,9 @@ etharp_request(struct netif *netif, const ip4_addr_t *ipaddr)
  80075c2:	f7ff fe43 	bl	800724c <etharp_raw>
  80075c6:	e7dd      	b.n	8007584 <etharp_output_to_arp_index+0x54>
  80075c8:	2000a594 	.word	0x2000a594
- 80075cc:	0801059f 	.word	0x0801059f
- 80075d0:	0801072d 	.word	0x0801072d
- 80075d4:	0800f5d5 	.word	0x0800f5d5
+ 80075cc:	08010551 	.word	0x08010551
+ 80075d0:	080106df 	.word	0x080106df
+ 80075d4:	0800f587 	.word	0x0800f587
  80075d8:	0800e76a 	.word	0x0800e76a
 
 080075dc <etharp_query>:
@@ -18280,11 +18280,11 @@ etharp_request(struct netif *netif, const ip4_addr_t *ipaddr)
  80076ec:	f04f 30ff 	mov.w	r0, #4294967295
  80076f0:	e7ad      	b.n	800764e <etharp_query+0x72>
  80076f2:	bf00      	nop
- 80076f4:	0801059f 	.word	0x0801059f
- 80076f8:	0801075d 	.word	0x0801075d
- 80076fc:	0800f5d5 	.word	0x0800f5d5
+ 80076f4:	08010551 	.word	0x08010551
+ 80076f8:	0801070f 	.word	0x0801070f
+ 80076fc:	0800f587 	.word	0x0800f587
  8007700:	2000a594 	.word	0x2000a594
- 8007704:	0801076b 	.word	0x0801076b
+ 8007704:	0801071d 	.word	0x0801071d
 
 08007708 <etharp_output>:
 {
@@ -18440,11 +18440,11 @@ etharp_request(struct netif *netif, const ip4_addr_t *ipaddr)
             return ERR_RTE;
  8007822:	f06f 0003 	mvn.w	r0, #3
  8007826:	e7b4      	b.n	8007792 <etharp_output+0x8a>
- 8007828:	0801059f 	.word	0x0801059f
- 800782c:	08010430 	.word	0x08010430
- 8007830:	0800f5d5 	.word	0x0800f5d5
- 8007834:	080111fb 	.word	0x080111fb
- 8007838:	080106ea 	.word	0x080106ea
+ 8007828:	08010551 	.word	0x08010551
+ 800782c:	080103e2 	.word	0x080103e2
+ 8007830:	0800f587 	.word	0x0800f587
+ 8007834:	080111ad 	.word	0x080111ad
+ 8007838:	0801069c 	.word	0x0801069c
  800783c:	2000a594 	.word	0x2000a594
  8007840:	0800e764 	.word	0x0800e764
 
@@ -18570,9 +18570,9 @@ icmp_send_response(struct pbuf *p, u8_t type, u8_t code)
 }
  80078c4:	b007      	add	sp, #28
  80078c6:	bdf0      	pop	{r4, r5, r6, r7, pc}
- 80078c8:	08010785 	.word	0x08010785
- 80078cc:	080107fa 	.word	0x080107fa
- 80078d0:	0800f5d5 	.word	0x0800f5d5
+ 80078c8:	08010737 	.word	0x08010737
+ 80078cc:	080107ac 	.word	0x080107ac
+ 80078d0:	0800f587 	.word	0x0800f587
 
 080078d4 <icmp_input>:
 {
@@ -18742,11 +18742,11 @@ icmp_send_response(struct pbuf *p, u8_t type, u8_t code)
           goto icmperr;
  80079f2:	e795      	b.n	8007920 <icmp_input+0x4c>
  80079f4:	2000a690 	.word	0x2000a690
- 80079f8:	08010785 	.word	0x08010785
- 80079fc:	08010826 	.word	0x08010826
- 8007a00:	0800f5d5 	.word	0x0800f5d5
+ 80079f8:	08010737 	.word	0x08010737
+ 80079fc:	080107d8 	.word	0x080107d8
+ 8007a00:	0800f587 	.word	0x0800f587
  8007a04:	2000a6a4 	.word	0x2000a6a4
- 8007a08:	0801085b 	.word	0x0801085b
+ 8007a08:	0801080d 	.word	0x0801080d
 
 08007a0c <icmp_dest_unreach>:
 {
@@ -19265,10 +19265,10 @@ ip4_output_if_src(struct pbuf *p, const ip4_addr_t *src, const ip4_addr_t *dest,
  8007d0e:	4638      	mov	r0, r7
  8007d10:	4798      	blx	r3
  8007d12:	e7a9      	b.n	8007c68 <ip4_output_if_src+0x34>
- 8007d14:	0801088d 	.word	0x0801088d
- 8007d18:	08010901 	.word	0x08010901
- 8007d1c:	0800f5d5 	.word	0x0800f5d5
- 8007d20:	0801090d 	.word	0x0801090d
+ 8007d14:	0801083f 	.word	0x0801083f
+ 8007d18:	080108b3 	.word	0x080108b3
+ 8007d1c:	0800f587 	.word	0x0800f587
+ 8007d20:	080108bf 	.word	0x080108bf
  8007d24:	0800e614 	.word	0x0800e614
  8007d28:	2000a686 	.word	0x2000a686
 
@@ -19397,9 +19397,9 @@ ip_reass_dequeue_datagram(struct ip_reassdata *ipr, struct ip_reassdata *prev)
  8007db4:	602b      	str	r3, [r5, #0]
  8007db6:	e7ee      	b.n	8007d96 <ip_reass_dequeue_datagram+0x12>
  8007db8:	2000a688 	.word	0x2000a688
- 8007dbc:	0801093a 	.word	0x0801093a
- 8007dc0:	080109b3 	.word	0x080109b3
- 8007dc4:	0800f5d5 	.word	0x0800f5d5
+ 8007dbc:	080108ec 	.word	0x080108ec
+ 8007dc0:	08010965 	.word	0x08010965
+ 8007dc4:	0800f587 	.word	0x0800f587
 
 08007dc8 <ip_reass_free_complete_datagram>:
   LWIP_ASSERT("prev != ipr", prev != ipr);
@@ -19518,13 +19518,13 @@ ip_reass_dequeue_datagram(struct ip_reassdata *ipr, struct ip_reassdata *prev)
  8007e8c:	f001 f914 	bl	80090b8 <pbuf_free>
  8007e90:	e7d2      	b.n	8007e38 <ip_reass_free_complete_datagram+0x70>
  8007e92:	bf00      	nop
- 8007e94:	0801093a 	.word	0x0801093a
- 8007e98:	080109cc 	.word	0x080109cc
- 8007e9c:	0800f5d5 	.word	0x0800f5d5
- 8007ea0:	080109d8 	.word	0x080109d8
+ 8007e94:	080108ec 	.word	0x080108ec
+ 8007e98:	0801097e 	.word	0x0801097e
+ 8007e9c:	0800f587 	.word	0x0800f587
+ 8007ea0:	0801098a 	.word	0x0801098a
  8007ea4:	2000a688 	.word	0x2000a688
- 8007ea8:	08010a07 	.word	0x08010a07
- 8007eac:	080109ea 	.word	0x080109ea
+ 8007ea8:	080109b9 	.word	0x080109b9
+ 8007eac:	0801099c 	.word	0x0801099c
 
 08007eb0 <ip_reass_remove_oldest_datagram>:
 {
@@ -19622,9 +19622,9 @@ ip_frag_free_pbuf_custom_ref(struct pbuf_custom_ref *p)
  8007f40:	e8bd 4010 	ldmia.w	sp!, {r4, lr}
   memp_free(MEMP_FRAG_PBUF, p);
  8007f44:	f000 be58 	b.w	8008bf8 <memp_free>
- 8007f48:	0801093a 	.word	0x0801093a
- 8007f4c:	080111e3 	.word	0x080111e3
- 8007f50:	0800f5d5 	.word	0x0800f5d5
+ 8007f48:	080108ec 	.word	0x080108ec
+ 8007f4c:	08011195 	.word	0x08011195
+ 8007f50:	0800f587 	.word	0x0800f587
 
 08007f54 <ipfrag_free_pbuf_custom>:
 
@@ -19657,9 +19657,9 @@ ipfrag_free_pbuf_custom(struct pbuf *p)
   ip_frag_free_pbuf_custom_ref(pcr);
  8007f76:	f7ff bfd7 	b.w	8007f28 <ip_frag_free_pbuf_custom_ref>
  8007f7a:	bf00      	nop
- 8007f7c:	0801093a 	.word	0x0801093a
- 8007f80:	08010a29 	.word	0x08010a29
- 8007f84:	0800f5d5 	.word	0x0800f5d5
+ 8007f7c:	080108ec 	.word	0x080108ec
+ 8007f80:	080109db 	.word	0x080109db
+ 8007f84:	0800f587 	.word	0x0800f587
 
 08007f88 <ip_reass_tmr>:
 {
@@ -20137,13 +20137,13 @@ ipfrag_free_pbuf_custom(struct pbuf *p)
  80082bc:	e787      	b.n	80081ce <ip4_reass+0x21a>
  80082be:	bf00      	nop
  80082c0:	2000a688 	.word	0x2000a688
- 80082c4:	0801093a 	.word	0x0801093a
- 80082c8:	08010a53 	.word	0x08010a53
- 80082cc:	0800f5d5 	.word	0x0800f5d5
- 80082d0:	08010ab9 	.word	0x08010ab9
- 80082d4:	08010a35 	.word	0x08010a35
- 80082d8:	08010a8a 	.word	0x08010a8a
- 80082dc:	08010a97 	.word	0x08010a97
+ 80082c4:	080108ec 	.word	0x080108ec
+ 80082c8:	08010a05 	.word	0x08010a05
+ 80082cc:	0800f587 	.word	0x0800f587
+ 80082d0:	08010a6b 	.word	0x08010a6b
+ 80082d4:	080109e7 	.word	0x080109e7
+ 80082d8:	08010a3c 	.word	0x08010a3c
+ 80082dc:	08010a49 	.word	0x08010a49
   if (ipr->p == NULL) {
  80082e0:	6863      	ldr	r3, [r4, #4]
  80082e2:	2b00      	cmp	r3, #0
@@ -20192,9 +20192,9 @@ ipfrag_free_pbuf_custom(struct pbuf *p)
  800834c:	e706      	b.n	800815c <ip4_reass+0x1a8>
  800834e:	bf00      	nop
  8008350:	2000a688 	.word	0x2000a688
- 8008354:	0801093a 	.word	0x0801093a
- 8008358:	08010ad4 	.word	0x08010ad4
- 800835c:	0800f5d5 	.word	0x0800f5d5
+ 8008354:	080108ec 	.word	0x080108ec
+ 8008358:	08010a86 	.word	0x08010a86
+ 800835c:	0800f587 	.word	0x0800f587
 
 08008360 <ip4_frag>:
   u16_t newpbuflen = 0;
@@ -20484,11 +20484,11 @@ memerr:
  800851a:	9303      	str	r3, [sp, #12]
  800851c:	e75a      	b.n	80083d4 <ip4_frag+0x74>
  800851e:	bf00      	nop
- 8008520:	0801093a 	.word	0x0801093a
- 8008524:	08010af4 	.word	0x08010af4
- 8008528:	0800f5d5 	.word	0x0800f5d5
- 800852c:	08010b0f 	.word	0x08010b0f
- 8008530:	08010b2f 	.word	0x08010b2f
+ 8008520:	080108ec 	.word	0x080108ec
+ 8008524:	08010aa6 	.word	0x08010aa6
+ 8008528:	0800f587 	.word	0x0800f587
+ 800852c:	08010ac1 	.word	0x08010ac1
+ 8008530:	08010ae1 	.word	0x08010ae1
  8008534:	08007f55 	.word	0x08007f55
 
 08008538 <lwip_htons>:
@@ -20773,9 +20773,9 @@ lwip_init(void)
  8008648:	2000a6a8 	.word	0x2000a6a8
  800864c:	20048000 	.word	0x20048000
  8008650:	2004c000 	.word	0x2004c000
- 8008654:	08010b3e 	.word	0x08010b3e
- 8008658:	08010bad 	.word	0x08010bad
- 800865c:	0800f5d5 	.word	0x0800f5d5
+ 8008654:	08010af0 	.word	0x08010af0
+ 8008658:	08010b5f 	.word	0x08010b5f
+ 800865c:	0800f587 	.word	0x0800f587
 
 08008660 <mem_free>:
  * @param rmem is the data portion of a struct mem as returned by a previous
@@ -21006,18 +21006,18 @@ mem_free(void *rmem)
 }
  80087d8:	bd70      	pop	{r4, r5, r6, pc}
  80087da:	bf00      	nop
- 80087dc:	08010b3e 	.word	0x08010b3e
- 80087e0:	08010bc8 	.word	0x08010bc8
- 80087e4:	0800f5d5 	.word	0x0800f5d5
+ 80087dc:	08010af0 	.word	0x08010af0
+ 80087e0:	08010b7a 	.word	0x08010b7a
+ 80087e4:	0800f587 	.word	0x0800f587
  80087e8:	2000a6a8 	.word	0x2000a6a8
- 80087ec:	08010be9 	.word	0x08010be9
- 80087f0:	08010c02 	.word	0x08010c02
- 80087f4:	08010c28 	.word	0x08010c28
+ 80087ec:	08010b9b 	.word	0x08010b9b
+ 80087f0:	08010bb4 	.word	0x08010bb4
+ 80087f4:	08010bda 	.word	0x08010bda
  80087f8:	2000a6b4 	.word	0x2000a6b4
- 80087fc:	08010c5a 	.word	0x08010c5a
- 8008800:	08010c71 	.word	0x08010c71
- 8008804:	08010c8b 	.word	0x08010c8b
- 8008808:	08010ca6 	.word	0x08010ca6
+ 80087fc:	08010c0c 	.word	0x08010c0c
+ 8008800:	08010c23 	.word	0x08010c23
+ 8008804:	08010c3d 	.word	0x08010c3d
+ 8008808:	08010c58 	.word	0x08010c58
 
 0800880c <mem_trim>:
  *         or NULL if newsize is > old size, in which case rmem is NOT touched
@@ -21231,12 +21231,12 @@ mem_trim(void *rmem, mem_size_t new_size)
  8008948:	805c      	strhne	r4, [r3, #2]
  800894a:	e7d2      	b.n	80088f2 <mem_trim+0xe6>
  800894c:	2000a6a8 	.word	0x2000a6a8
- 8008950:	08010b3e 	.word	0x08010b3e
- 8008954:	08010cd0 	.word	0x08010cd0
- 8008958:	0800f5d5 	.word	0x0800f5d5
- 800895c:	08010ce7 	.word	0x08010ce7
+ 8008950:	08010af0 	.word	0x08010af0
+ 8008954:	08010c82 	.word	0x08010c82
+ 8008958:	0800f587 	.word	0x0800f587
+ 800895c:	08010c99 	.word	0x08010c99
  8008960:	2000a6b4 	.word	0x2000a6b4
- 8008964:	08010d07 	.word	0x08010d07
+ 8008964:	08010cb9 	.word	0x08010cb9
 
 08008968 <mem_malloc>:
  *
@@ -21451,13 +21451,13 @@ mem_malloc(mem_size_t size_in)
  8008a8e:	bf00      	nop
  8008a90:	2000a6a8 	.word	0x2000a6a8
  8008a94:	2000a6b4 	.word	0x2000a6b4
- 8008a98:	08010b3e 	.word	0x08010b3e
- 8008a9c:	08010d07 	.word	0x08010d07
- 8008aa0:	0800f5d5 	.word	0x0800f5d5
- 8008aa4:	08010d18 	.word	0x08010d18
- 8008aa8:	08010d31 	.word	0x08010d31
- 8008aac:	08010d61 	.word	0x08010d61
- 8008ab0:	08010d90 	.word	0x08010d90
+ 8008a98:	08010af0 	.word	0x08010af0
+ 8008a9c:	08010cb9 	.word	0x08010cb9
+ 8008aa0:	0800f587 	.word	0x0800f587
+ 8008aa4:	08010cca 	.word	0x08010cca
+ 8008aa8:	08010ce3 	.word	0x08010ce3
+ 8008aac:	08010d13 	.word	0x08010d13
+ 8008ab0:	08010d42 	.word	0x08010d42
 
 08008ab4 <do_memp_malloc_pool>:
 #if !MEMP_OVERFLOW_CHECK
@@ -21526,9 +21526,9 @@ do_memp_malloc_pool_fn(const struct memp_desc *desc, const char *file, const int
 }
  8008ae0:	4620      	mov	r0, r4
  8008ae2:	bd38      	pop	{r3, r4, r5, pc}
- 8008ae4:	08010db3 	.word	0x08010db3
- 8008ae8:	08010e23 	.word	0x08010e23
- 8008aec:	0800f5d5 	.word	0x0800f5d5
+ 8008ae4:	08010d65 	.word	0x08010d65
+ 8008ae8:	08010dd5 	.word	0x08010dd5
+ 8008aec:	0800f587 	.word	0x0800f587
 
 08008af0 <do_memp_free_pool>:
   return memp;
@@ -21580,9 +21580,9 @@ do_memp_free_pool(const struct memp_desc *desc, void *mem)
  8008b14:	e8bd 4038 	ldmia.w	sp!, {r3, r4, r5, lr}
   SYS_ARCH_UNPROTECT(old_level);
  8008b18:	f004 bbe4 	b.w	800d2e4 <sys_arch_unprotect>
- 8008b1c:	08010db3 	.word	0x08010db3
- 8008b20:	08010e46 	.word	0x08010e46
- 8008b24:	0800f5d5 	.word	0x0800f5d5
+ 8008b1c:	08010d65 	.word	0x08010d65
+ 8008b20:	08010df8 	.word	0x08010df8
+ 8008b24:	0800f587 	.word	0x0800f587
 
 08008b28 <memp_init_pool>:
   memp = (struct memp *)LWIP_MEM_ALIGN(desc->base);
@@ -21658,9 +21658,9 @@ do_memp_free_pool(const struct memp_desc *desc, void *mem)
 }
  8008b88:	4620      	mov	r0, r4
  8008b8a:	bd10      	pop	{r4, pc}
- 8008b8c:	08010db3 	.word	0x08010db3
- 8008b90:	08010e66 	.word	0x08010e66
- 8008b94:	0800f5d5 	.word	0x0800f5d5
+ 8008b8c:	08010d65 	.word	0x08010d65
+ 8008b90:	08010e18 	.word	0x08010e18
+ 8008b94:	0800f587 	.word	0x0800f587
 
 08008b98 <memp_malloc>:
   LWIP_ERROR("memp_malloc: type < MEMP_MAX", (type < MEMP_MAX), return NULL;);
@@ -21687,9 +21687,9 @@ do_memp_free_pool(const struct memp_desc *desc, void *mem)
  8008bbc:	bd08      	pop	{r3, pc}
  8008bbe:	bf00      	nop
  8008bc0:	0800e618 	.word	0x0800e618
- 8008bc4:	08010db3 	.word	0x08010db3
- 8008bc8:	08010e78 	.word	0x08010e78
- 8008bcc:	0800f5d5 	.word	0x0800f5d5
+ 8008bc4:	08010d65 	.word	0x08010d65
+ 8008bc8:	08010e2a 	.word	0x08010e2a
+ 8008bcc:	0800f587 	.word	0x0800f587
 
 08008bd0 <memp_free_pool>:
  * @param mem the memp element to free
@@ -21716,9 +21716,9 @@ memp_free_pool(const struct memp_desc *desc, void *mem)
 }
  8008be8:	4770      	bx	lr
  8008bea:	bf00      	nop
- 8008bec:	08010db3 	.word	0x08010db3
- 8008bf0:	08010e66 	.word	0x08010e66
- 8008bf4:	0800f5d5 	.word	0x0800f5d5
+ 8008bec:	08010d65 	.word	0x08010d65
+ 8008bf0:	08010e18 	.word	0x08010e18
+ 8008bf4:	0800f587 	.word	0x0800f587
 
 08008bf8 <memp_free>:
 {
@@ -21753,9 +21753,9 @@ memp_free_pool(const struct memp_desc *desc, void *mem)
 #endif
 }
  8008c16:	4770      	bx	lr
- 8008c18:	08010db3 	.word	0x08010db3
- 8008c1c:	08010e95 	.word	0x08010e95
- 8008c20:	0800f5d5 	.word	0x0800f5d5
+ 8008c18:	08010d65 	.word	0x08010d65
+ 8008c1c:	08010e47 	.word	0x08010e47
+ 8008c20:	0800f587 	.word	0x0800f587
  8008c24:	0800e618 	.word	0x0800e618
 
 08008c28 <netif_null_output_ip4>:
@@ -21801,9 +21801,9 @@ memp_free_pool(const struct memp_desc *desc, void *mem)
 }
  8008c64:	bd10      	pop	{r4, pc}
  8008c66:	bf00      	nop
- 8008c68:	08010eb0 	.word	0x08010eb0
- 8008c6c:	08010f21 	.word	0x08010f21
- 8008c70:	0800f5d5 	.word	0x0800f5d5
+ 8008c68:	08010e62 	.word	0x08010e62
+ 8008c6c:	08010ed3 	.word	0x08010ed3
+ 8008c70:	0800f587 	.word	0x0800f587
 
 08008c74 <netif_do_set_ipaddr.isra.0>:
 netif_do_set_ipaddr(struct netif *netif, const ip4_addr_t *ipaddr, ip_addr_t *old_addr)
@@ -21848,9 +21848,9 @@ netif_do_set_ipaddr(struct netif *netif, const ip4_addr_t *ipaddr, ip_addr_t *ol
 }
  8008cb4:	b002      	add	sp, #8
  8008cb6:	bd70      	pop	{r4, r5, r6, pc}
- 8008cb8:	08010eb0 	.word	0x08010eb0
- 8008cbc:	0800fa54 	.word	0x0800fa54
- 8008cc0:	0800f5d5 	.word	0x0800f5d5
+ 8008cb8:	08010e62 	.word	0x08010e62
+ 8008cbc:	0800fa06 	.word	0x0800fa06
+ 8008cc0:	0800f587 	.word	0x0800f587
 
 08008cc4 <netif_init>:
 }
@@ -22065,15 +22065,15 @@ netif_do_set_ipaddr(struct netif *netif, const ip4_addr_t *ipaddr, ip_addr_t *ol
     return NULL;
  8008e18:	462c      	mov	r4, r5
  8008e1a:	e78e      	b.n	8008d3a <netif_add+0x1a>
- 8008e1c:	08010eb0 	.word	0x08010eb0
- 8008e20:	08010fd6 	.word	0x08010fd6
- 8008e24:	0800f5d5 	.word	0x0800f5d5
- 8008e28:	08010fef 	.word	0x08010fef
+ 8008e1c:	08010e62 	.word	0x08010e62
+ 8008e20:	08010f88 	.word	0x08010f88
+ 8008e24:	0800f587 	.word	0x0800f587
+ 8008e28:	08010fa1 	.word	0x08010fa1
  8008e2c:	08008c29 	.word	0x08008c29
  8008e30:	2000e3f4 	.word	0x2000e3f4
- 8008e34:	08011025 	.word	0x08011025
+ 8008e34:	08010fd7 	.word	0x08010fd7
  8008e38:	0800e614 	.word	0x0800e614
- 8008e3c:	08011011 	.word	0x08011011
+ 8008e3c:	08010fc3 	.word	0x08010fc3
 
 08008e40 <netif_set_default>:
   netif_default = netif;
@@ -22106,9 +22106,9 @@ netif_do_set_ipaddr(struct netif *netif, const ip4_addr_t *ipaddr, ip_addr_t *ol
  8008e6e:	f7ff bedf 	b.w	8008c30 <netif_issue_reports>
 }
  8008e72:	4770      	bx	lr
- 8008e74:	08010eb0 	.word	0x08010eb0
- 8008e78:	08011053 	.word	0x08011053
- 8008e7c:	0800f5d5 	.word	0x0800f5d5
+ 8008e74:	08010e62 	.word	0x08010e62
+ 8008e78:	08011005 	.word	0x08011005
+ 8008e7c:	0800f587 	.word	0x0800f587
 
 08008e80 <netif_set_down>:
   LWIP_ERROR("netif_set_down: invalid netif", netif != NULL, return);
@@ -22135,9 +22135,9 @@ netif_do_set_ipaddr(struct netif *netif, const ip4_addr_t *ipaddr, ip_addr_t *ol
 }
  8008ea8:	4770      	bx	lr
  8008eaa:	bf00      	nop
- 8008eac:	08010eb0 	.word	0x08010eb0
- 8008eb0:	0801106f 	.word	0x0801106f
- 8008eb4:	0800f5d5 	.word	0x0800f5d5
+ 8008eac:	08010e62 	.word	0x08010e62
+ 8008eb0:	08011021 	.word	0x08011021
+ 8008eb4:	0800f587 	.word	0x0800f587
 
 08008eb8 <netif_set_link_up>:
 {
@@ -22177,9 +22177,9 @@ netif_do_set_ipaddr(struct netif *netif, const ip4_addr_t *ipaddr, ip_addr_t *ol
 }
  8008ef8:	bd10      	pop	{r4, pc}
  8008efa:	bf00      	nop
- 8008efc:	08010eb0 	.word	0x08010eb0
- 8008f00:	0801108d 	.word	0x0801108d
- 8008f04:	0800f5d5 	.word	0x0800f5d5
+ 8008efc:	08010e62 	.word	0x08010e62
+ 8008f00:	0801103f 	.word	0x0801103f
+ 8008f04:	0800f587 	.word	0x0800f587
 
 08008f08 <netif_set_link_down>:
   LWIP_ERROR("netif_set_link_down: invalid netif", netif != NULL, return);
@@ -22204,9 +22204,9 @@ netif_do_set_ipaddr(struct netif *netif, const ip4_addr_t *ipaddr, ip_addr_t *ol
  8008f2c:	4718      	bx	r3
 }
  8008f2e:	4770      	bx	lr
- 8008f30:	08010eb0 	.word	0x08010eb0
- 8008f34:	080110ae 	.word	0x080110ae
- 8008f38:	0800f5d5 	.word	0x0800f5d5
+ 8008f30:	08010e62 	.word	0x08010e62
+ 8008f34:	08011060 	.word	0x08011060
+ 8008f38:	0800f587 	.word	0x0800f587
 
 08008f3c <netif_set_link_callback>:
   if (netif) {
@@ -22335,9 +22335,9 @@ pbuf_add_header_impl(struct pbuf *p, size_t header_size_increment, u8_t force)
  8008fbc:	2000      	movs	r0, #0
 }
  8008fbe:	bd38      	pop	{r3, r4, r5, pc}
- 8008fc0:	080110d1 	.word	0x080110d1
- 8008fc4:	080111e3 	.word	0x080111e3
- 8008fc8:	0800f5d5 	.word	0x0800f5d5
+ 8008fc0:	08011083 	.word	0x08011083
+ 8008fc4:	08011195 	.word	0x08011195
+ 8008fc8:	0800f587 	.word	0x0800f587
 
 08008fcc <pbuf_alloc_reference>:
   LWIP_ASSERT("invalid pbuf_type", (type == PBUF_REF) || (type == PBUF_ROM));
@@ -22378,9 +22378,9 @@ pbuf_add_header_impl(struct pbuf *p, size_t header_size_increment, u8_t force)
 }
  8009004:	bd70      	pop	{r4, r5, r6, pc}
  8009006:	bf00      	nop
- 8009008:	080110d1 	.word	0x080110d1
- 800900c:	08011141 	.word	0x08011141
- 8009010:	0800f5d5 	.word	0x0800f5d5
+ 8009008:	08011083 	.word	0x08011083
+ 800900c:	080110f3 	.word	0x080110f3
+ 8009010:	0800f587 	.word	0x0800f587
 
 08009014 <pbuf_alloced_custom>:
   if (LWIP_MEM_ALIGN_SIZE(offset) + length > payload_mem_len) {
@@ -22509,10 +22509,10 @@ pbuf_remove_header(struct pbuf *p, size_t header_size_decrement)
  8009092:	4904      	ldr	r1, [pc, #16]	; (80090a4 <pbuf_remove_header+0x54>)
  8009094:	e7e2      	b.n	800905c <pbuf_remove_header+0xc>
  8009096:	bf00      	nop
- 8009098:	080110d1 	.word	0x080110d1
- 800909c:	080111e3 	.word	0x080111e3
- 80090a0:	0800f5d5 	.word	0x0800f5d5
- 80090a4:	08011153 	.word	0x08011153
+ 8009098:	08011083 	.word	0x08011083
+ 800909c:	08011195 	.word	0x08011195
+ 80090a0:	0800f587 	.word	0x0800f587
+ 80090a4:	08011105 	.word	0x08011105
 
 080090a8 <pbuf_header_force>:
 
@@ -22656,12 +22656,12 @@ pbuf_free(struct pbuf *p)
  8009168:	4640      	mov	r0, r8
  800916a:	f004 f933 	bl	800d3d4 <iprintf>
  800916e:	e7dd      	b.n	800912c <pbuf_free+0x74>
- 8009170:	080110d1 	.word	0x080110d1
- 8009174:	080111e3 	.word	0x080111e3
- 8009178:	0800f5d5 	.word	0x0800f5d5
- 800917c:	08011187 	.word	0x08011187
- 8009180:	080111a8 	.word	0x080111a8
- 8009184:	08011171 	.word	0x08011171
+ 8009170:	08011083 	.word	0x08011083
+ 8009174:	08011195 	.word	0x08011195
+ 8009178:	0800f587 	.word	0x0800f587
+ 800917c:	08011139 	.word	0x08011139
+ 8009180:	0801115a 	.word	0x0801115a
+ 8009184:	08011123 	.word	0x08011123
 
 08009188 <pbuf_alloc>:
   switch (type) {
@@ -22812,9 +22812,9 @@ pbuf_free(struct pbuf *p)
       LWIP_ASSERT("pbuf_alloc: pbuf->payload properly aligned",
  8009268:	e7da      	b.n	8009220 <pbuf_alloc+0x98>
  800926a:	bf00      	nop
- 800926c:	080110d1 	.word	0x080110d1
- 8009270:	080111ba 	.word	0x080111ba
- 8009274:	0800f5d5 	.word	0x0800f5d5
+ 800926c:	08011083 	.word	0x08011083
+ 8009270:	0801116c 	.word	0x0801116c
+ 8009274:	0800f587 	.word	0x0800f587
  8009278:	00010080 	.word	0x00010080
  800927c:	00010082 	.word	0x00010082
 
@@ -22907,11 +22907,11 @@ pbuf_free(struct pbuf *p)
  8009316:	6023      	str	r3, [r4, #0]
 }
  8009318:	e8bd 87f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, pc}
- 800931c:	080110d1 	.word	0x080110d1
- 8009320:	080111d5 	.word	0x080111d5
- 8009324:	0800f5d5 	.word	0x0800f5d5
- 8009328:	08011205 	.word	0x08011205
- 800932c:	080111ed 	.word	0x080111ed
+ 800931c:	08011083 	.word	0x08011083
+ 8009320:	08011187 	.word	0x08011187
+ 8009324:	0800f587 	.word	0x0800f587
+ 8009328:	080111b7 	.word	0x080111b7
+ 800932c:	0801119f 	.word	0x0801119f
 
 08009330 <pbuf_clen>:
  * @param p first pbuf of chain
@@ -22971,9 +22971,9 @@ pbuf_ref(struct pbuf *p)
  8009366:	f004 b835 	b.w	800d3d4 <iprintf>
 }
  800936a:	bd10      	pop	{r4, pc}
- 800936c:	080110d1 	.word	0x080110d1
- 8009370:	08011221 	.word	0x08011221
- 8009374:	0800f5d5 	.word	0x0800f5d5
+ 800936c:	08011083 	.word	0x08011083
+ 8009370:	080111d3 	.word	0x080111d3
+ 8009374:	0800f587 	.word	0x0800f587
 
 08009378 <pbuf_cat>:
  *
@@ -23043,11 +23043,11 @@ pbuf_cat(struct pbuf *h, struct pbuf *t)
 }
  80093d4:	bd70      	pop	{r4, r5, r6, pc}
  80093d6:	bf00      	nop
- 80093d8:	080110d1 	.word	0x080110d1
- 80093dc:	08011233 	.word	0x08011233
- 80093e0:	0800f5d5 	.word	0x0800f5d5
- 80093e4:	08011268 	.word	0x08011268
- 80093e8:	08011295 	.word	0x08011295
+ 80093d8:	08011083 	.word	0x08011083
+ 80093dc:	080111e5 	.word	0x080111e5
+ 80093e0:	0800f587 	.word	0x0800f587
+ 80093e4:	0801121a 	.word	0x0801121a
+ 80093e8:	08011247 	.word	0x08011247
 
 080093ec <pbuf_chain>:
  * The ->ref field of the first pbuf of the tail chain is adjusted.
@@ -23220,13 +23220,13 @@ pbuf_copy(struct pbuf *p_to, const struct pbuf *p_from)
  80094e2:	4620      	mov	r0, r4
  80094e4:	e79f      	b.n	8009426 <pbuf_copy+0x26>
  80094e6:	bf00      	nop
- 80094e8:	080110d1 	.word	0x080110d1
- 80094ec:	080112dc 	.word	0x080112dc
- 80094f0:	0800f5d5 	.word	0x0800f5d5
- 80094f4:	08011323 	.word	0x08011323
- 80094f8:	0801133e 	.word	0x0801133e
- 80094fc:	0801134b 	.word	0x0801134b
- 8009500:	0801130c 	.word	0x0801130c
+ 80094e8:	08011083 	.word	0x08011083
+ 80094ec:	0801128e 	.word	0x0801128e
+ 80094f0:	0800f587 	.word	0x0800f587
+ 80094f4:	080112d5 	.word	0x080112d5
+ 80094f8:	080112f0 	.word	0x080112f0
+ 80094fc:	080112fd 	.word	0x080112fd
+ 8009500:	080112be 	.word	0x080112be
 
 08009504 <pbuf_copy_partial>:
  * @param offset offset into the packet buffer from where to begin copying len bytes
@@ -23315,10 +23315,10 @@ pbuf_copy_partial(const struct pbuf *buf, void *dataptr, u16_t len, u16_t offset
  800957a:	2600      	movs	r6, #0
  800957c:	e7e4      	b.n	8009548 <pbuf_copy_partial+0x44>
  800957e:	bf00      	nop
- 8009580:	080110d1 	.word	0x080110d1
- 8009584:	08011375 	.word	0x08011375
- 8009588:	0800f5d5 	.word	0x0800f5d5
- 800958c:	08011394 	.word	0x08011394
+ 8009580:	08011083 	.word	0x08011083
+ 8009584:	08011327 	.word	0x08011327
+ 8009588:	0800f587 	.word	0x0800f587
+ 800958c:	08011346 	.word	0x08011346
 
 08009590 <pbuf_clone>:
  *
@@ -23356,9 +23356,9 @@ pbuf_clone(pbuf_layer layer, pbuf_type type, struct pbuf *p)
  80095b6:	4620      	mov	r0, r4
  80095b8:	bd38      	pop	{r3, r4, r5, pc}
  80095ba:	bf00      	nop
- 80095bc:	080110d1 	.word	0x080110d1
- 80095c0:	08011494 	.word	0x08011494
- 80095c4:	0800f5d5 	.word	0x0800f5d5
+ 80095bc:	08011083 	.word	0x08011083
+ 80095c0:	08011446 	.word	0x08011446
+ 80095c4:	0800f587 	.word	0x0800f587
 
 080095c8 <tcp_new_port>:
  *
@@ -23482,9 +23482,9 @@ again:
     return ERR_OK;
  800966c:	e7f0      	b.n	8009650 <tcp_close_shutdown_fin+0x34>
  800966e:	bf00      	nop
- 8009670:	080114a5 	.word	0x080114a5
- 8009674:	08011514 	.word	0x08011514
- 8009678:	0800f5d5 	.word	0x0800f5d5
+ 8009670:	08011457 	.word	0x08011457
+ 8009674:	080114c6 	.word	0x080114c6
+ 8009678:	0800f587 	.word	0x0800f587
 
 0800967c <tcp_init>:
 {
@@ -23522,9 +23522,9 @@ again:
   memp_free(MEMP_TCP_PCB, pcb);
  80096b2:	f7ff baa1 	b.w	8008bf8 <memp_free>
  80096b6:	bf00      	nop
- 80096b8:	080114a5 	.word	0x080114a5
- 80096bc:	08011520 	.word	0x08011520
- 80096c0:	0800f5d5 	.word	0x0800f5d5
+ 80096b8:	08011457 	.word	0x08011457
+ 80096bc:	080114d2 	.word	0x080114d2
+ 80096c0:	0800f587 	.word	0x0800f587
 
 080096c4 <tcp_bind>:
 {
@@ -23614,10 +23614,10 @@ again:
  8009750:	e7c8      	b.n	80096e4 <tcp_bind+0x20>
  8009752:	bf00      	nop
  8009754:	0800e614 	.word	0x0800e614
- 8009758:	080114a5 	.word	0x080114a5
- 800975c:	08011531 	.word	0x08011531
- 8009760:	0800f5d5 	.word	0x0800f5d5
- 8009764:	08011547 	.word	0x08011547
+ 8009758:	08011457 	.word	0x08011457
+ 800975c:	080114e3 	.word	0x080114e3
+ 8009760:	0800f587 	.word	0x0800f587
+ 8009764:	080114f9 	.word	0x080114f9
  8009768:	0800e6e8 	.word	0x0800e6e8
  800976c:	2000e400 	.word	0x2000e400
 
@@ -23733,10 +23733,10 @@ again:
  8009818:	f04f 33ff 	mov.w	r3, #4294967295
  800981c:	e7b6      	b.n	800978c <tcp_listen_with_backlog_and_err+0x1c>
  800981e:	bf00      	nop
- 8009820:	080114a5 	.word	0x080114a5
- 8009824:	0801156f 	.word	0x0801156f
- 8009828:	0800f5d5 	.word	0x0800f5d5
- 800982c:	0801159c 	.word	0x0801159c
+ 8009820:	08011457 	.word	0x08011457
+ 8009824:	08011521 	.word	0x08011521
+ 8009828:	0800f587 	.word	0x0800f587
+ 800982c:	0801154e 	.word	0x0801154e
  8009830:	2000e400 	.word	0x2000e400
  8009834:	0800a39d 	.word	0x0800a39d
 
@@ -23795,10 +23795,10 @@ again:
       pcb->rcv_ann_wnd = (tcpwnd_size_t)new_rcv_ann_wnd;
  8009890:	8565      	strh	r5, [r4, #42]	; 0x2a
  8009892:	e7ea      	b.n	800986a <tcp_update_rcv_ann_wnd+0x32>
- 8009894:	080114a5 	.word	0x080114a5
- 8009898:	080115d3 	.word	0x080115d3
- 800989c:	0800f5d5 	.word	0x0800f5d5
- 80098a0:	080115f7 	.word	0x080115f7
+ 8009894:	08011457 	.word	0x08011457
+ 8009898:	08011585 	.word	0x08011585
+ 800989c:	0800f587 	.word	0x0800f587
+ 80098a0:	080115a9 	.word	0x080115a9
 
 080098a4 <tcp_recved>:
 {
@@ -23863,10 +23863,10 @@ again:
 }
  800990c:	bd70      	pop	{r4, r5, r6, pc}
  800990e:	bf00      	nop
- 8009910:	080114a5 	.word	0x080114a5
- 8009914:	08011611 	.word	0x08011611
- 8009918:	0800f5d5 	.word	0x0800f5d5
- 800991c:	08011629 	.word	0x08011629
+ 8009910:	08011457 	.word	0x08011457
+ 8009914:	080115c3 	.word	0x080115c3
+ 8009918:	0800f587 	.word	0x0800f587
+ 800991c:	080115db 	.word	0x080115db
 
 08009920 <tcp_seg_free>:
  *
@@ -23957,9 +23957,9 @@ tcp_recv(struct tcp_pcb *pcb, tcp_recv_fn recv)
 }
  8009974:	bd38      	pop	{r3, r4, r5, pc}
  8009976:	bf00      	nop
- 8009978:	080114a5 	.word	0x080114a5
- 800997c:	08011668 	.word	0x08011668
- 8009980:	0800f5d5 	.word	0x0800f5d5
+ 8009978:	08011457 	.word	0x08011457
+ 800997c:	0801161a 	.word	0x0801161a
+ 8009980:	0800f587 	.word	0x0800f587
 
 08009984 <tcp_sent>:
  * @param pcb tcp_pcb to set the sent callback
@@ -23988,9 +23988,9 @@ tcp_sent(struct tcp_pcb *pcb, tcp_sent_fn sent)
   }
 }
  80099a2:	bd38      	pop	{r3, r4, r5, pc}
- 80099a4:	080114a5 	.word	0x080114a5
- 80099a8:	0801168f 	.word	0x0801168f
- 80099ac:	0800f5d5 	.word	0x0800f5d5
+ 80099a4:	08011457 	.word	0x08011457
+ 80099a8:	08011641 	.word	0x08011641
+ 80099ac:	0800f587 	.word	0x0800f587
 
 080099b0 <tcp_err>:
  * @param err callback function to call for this pcb when a fatal error
@@ -24020,9 +24020,9 @@ tcp_err(struct tcp_pcb *pcb, tcp_err_fn err)
 }
  80099d0:	bd38      	pop	{r3, r4, r5, pc}
  80099d2:	bf00      	nop
- 80099d4:	080114a5 	.word	0x080114a5
- 80099d8:	080116b6 	.word	0x080116b6
- 80099dc:	0800f5d5 	.word	0x0800f5d5
+ 80099d4:	08011457 	.word	0x08011457
+ 80099d8:	08011668 	.word	0x08011668
+ 80099dc:	0800f587 	.word	0x0800f587
 
 080099e0 <tcp_accept>:
  */
@@ -24085,10 +24085,10 @@ tcp_poll(struct tcp_pcb *pcb, tcp_poll_fn poll, u8_t interval)
  8009a20:	7765      	strb	r5, [r4, #29]
 }
  8009a22:	bd70      	pop	{r4, r5, r6, pc}
- 8009a24:	080114a5 	.word	0x080114a5
- 8009a28:	080116dc 	.word	0x080116dc
- 8009a2c:	0800f5d5 	.word	0x0800f5d5
- 8009a30:	080116f2 	.word	0x080116f2
+ 8009a24:	08011457 	.word	0x08011457
+ 8009a28:	0801168e 	.word	0x0801168e
+ 8009a2c:	0800f587 	.word	0x0800f587
+ 8009a30:	080116a4 	.word	0x080116a4
 
 08009a34 <tcp_pcb_purge>:
  *
@@ -24146,9 +24146,9 @@ tcp_pcb_purge(struct tcp_pcb *pcb)
  8009a7a:	f8a4 3068 	strh.w	r3, [r4, #104]	; 0x68
 }
  8009a7e:	bd10      	pop	{r4, pc}
- 8009a80:	080114a5 	.word	0x080114a5
- 8009a84:	08011710 	.word	0x08011710
- 8009a88:	0800f5d5 	.word	0x0800f5d5
+ 8009a80:	08011457 	.word	0x08011457
+ 8009a84:	080116c2 	.word	0x080116c2
+ 8009a88:	0800f587 	.word	0x0800f587
 
 08009a8c <tcp_slowtmr>:
 {
@@ -24526,16 +24526,16 @@ tcp_pcb_purge(struct tcp_pcb *pcb)
  8009d3c:	e6f4      	b.n	8009b28 <tcp_slowtmr+0x9c>
  8009d3e:	bf00      	nop
  8009d40:	2000e400 	.word	0x2000e400
- 8009d44:	080114a5 	.word	0x080114a5
- 8009d48:	08011755 	.word	0x08011755
- 8009d4c:	0801177f 	.word	0x0801177f
- 8009d50:	08011813 	.word	0x08011813
- 8009d54:	080117ac 	.word	0x080117ac
- 8009d58:	080117de 	.word	0x080117de
+ 8009d44:	08011457 	.word	0x08011457
+ 8009d48:	08011707 	.word	0x08011707
+ 8009d4c:	08011731 	.word	0x08011731
+ 8009d50:	080117c5 	.word	0x080117c5
+ 8009d54:	0801175e 	.word	0x0801175e
+ 8009d58:	08011790 	.word	0x08011790
  8009d5c:	0800e6e8 	.word	0x0800e6e8
- 8009d60:	0801172b 	.word	0x0801172b
- 8009d64:	0800f5d5 	.word	0x0800f5d5
- 8009d68:	08011868 	.word	0x08011868
+ 8009d60:	080116dd 	.word	0x080116dd
+ 8009d64:	0800f587 	.word	0x0800f587
+ 8009d68:	0801181a 	.word	0x0801181a
                  (pcb->keep_idle + pcb->keep_cnt_sent * TCP_KEEP_INTVL(pcb))
  8009d6c:	f894 2097 	ldrb.w	r2, [r4, #151]	; 0x97
  8009d70:	4e3d      	ldr	r6, [pc, #244]	; (8009e68 <tcp_slowtmr+0x3dc>)
@@ -24677,9 +24677,9 @@ tcp_pcb_purge(struct tcp_pcb *pcb)
  8009e64:	e62b      	b.n	8009abe <tcp_slowtmr+0x32>
  8009e66:	bf00      	nop
  8009e68:	000124f8 	.word	0x000124f8
- 8009e6c:	0801183e 	.word	0x0801183e
- 8009e70:	080118be 	.word	0x080118be
- 8009e74:	08011897 	.word	0x08011897
+ 8009e6c:	080117f0 	.word	0x080117f0
+ 8009e70:	08011870 	.word	0x08011870
+ 8009e74:	08011849 	.word	0x08011849
 
 08009e78 <tcp_pcb_remove>:
  * @param pcblist PCB list to purge.
@@ -24796,12 +24796,12 @@ tcp_pcb_remove(struct tcp_pcb **pcblist, struct tcp_pcb *pcb)
  8009f10:	f003 fa60 	bl	800d3d4 <iprintf>
  8009f14:	e7d2      	b.n	8009ebc <tcp_pcb_remove+0x44>
  8009f16:	bf00      	nop
- 8009f18:	080114a5 	.word	0x080114a5
- 8009f1c:	080118e4 	.word	0x080118e4
- 8009f20:	0800f5d5 	.word	0x0800f5d5
- 8009f24:	08011900 	.word	0x08011900
- 8009f28:	08011938 	.word	0x08011938
- 8009f2c:	08011920 	.word	0x08011920
+ 8009f18:	08011457 	.word	0x08011457
+ 8009f1c:	08011896 	.word	0x08011896
+ 8009f20:	0800f587 	.word	0x0800f587
+ 8009f24:	080118b2 	.word	0x080118b2
+ 8009f28:	080118ea 	.word	0x080118ea
+ 8009f2c:	080118d2 	.word	0x080118d2
 
 08009f30 <tcp_close_shutdown>:
 {
@@ -24977,15 +24977,15 @@ tcp_pcb_remove(struct tcp_pcb **pcblist, struct tcp_pcb *pcb)
  800a060:	e8bd 4030 	ldmia.w	sp!, {r4, r5, lr}
       return tcp_close_shutdown_fin(pcb);
  800a064:	f7ff bada 	b.w	800961c <tcp_close_shutdown_fin>
- 800a068:	080114a5 	.word	0x080114a5
- 800a06c:	08011951 	.word	0x08011951
- 800a070:	0800f5d5 	.word	0x0800f5d5
- 800a074:	08011971 	.word	0x08011971
+ 800a068:	08011457 	.word	0x08011457
+ 800a06c:	08011903 	.word	0x08011903
+ 800a070:	0800f587 	.word	0x0800f587
+ 800a074:	08011923 	.word	0x08011923
  800a078:	2000e400 	.word	0x2000e400
  800a07c:	2000e458 	.word	0x2000e458
  800a080:	0800e6e8 	.word	0x0800e6e8
  800a084:	2000e404 	.word	0x2000e404
- 800a088:	0801198a 	.word	0x0801198a
+ 800a088:	0801193c 	.word	0x0801193c
 
 0800a08c <tcp_close>:
 {
@@ -25016,9 +25016,9 @@ tcp_pcb_remove(struct tcp_pcb **pcblist, struct tcp_pcb *pcb)
 }
  800a0b6:	f06f 000f 	mvn.w	r0, #15
  800a0ba:	bd08      	pop	{r3, pc}
- 800a0bc:	080114a5 	.word	0x080114a5
- 800a0c0:	080119a3 	.word	0x080119a3
- 800a0c4:	0800f5d5 	.word	0x0800f5d5
+ 800a0bc:	08011457 	.word	0x08011457
+ 800a0c0:	08011955 	.word	0x08011955
+ 800a0c4:	0800f587 	.word	0x0800f587
 
 0800a0c8 <tcp_recv_null>:
 {
@@ -25057,9 +25057,9 @@ tcp_pcb_remove(struct tcp_pcb **pcblist, struct tcp_pcb *pcb)
   return ERR_OK;
  800a100:	4610      	mov	r0, r2
  800a102:	e7ee      	b.n	800a0e2 <tcp_recv_null+0x1a>
- 800a104:	080114a5 	.word	0x080114a5
- 800a108:	080119ba 	.word	0x080119ba
- 800a10c:	0800f5d5 	.word	0x0800f5d5
+ 800a104:	08011457 	.word	0x08011457
+ 800a108:	0801196c 	.word	0x0801196c
+ 800a10c:	0800f587 	.word	0x0800f587
 
 0800a110 <tcp_process_refused_data>:
 {
@@ -25140,9 +25140,9 @@ tcp_pcb_remove(struct tcp_pcb **pcblist, struct tcp_pcb *pcb)
       return ERR_INPROGRESS;
  800a18c:	e7cc      	b.n	800a128 <tcp_process_refused_data+0x18>
  800a18e:	bf00      	nop
- 800a190:	080114a5 	.word	0x080114a5
- 800a194:	080119d5 	.word	0x080119d5
- 800a198:	0800f5d5 	.word	0x0800f5d5
+ 800a190:	08011457 	.word	0x08011457
+ 800a194:	08011987 	.word	0x08011987
+ 800a198:	0800f587 	.word	0x0800f587
 
 0800a19c <tcp_fasttmr>:
 {
@@ -25302,9 +25302,9 @@ tcp_pcb_remove(struct tcp_pcb **pcblist, struct tcp_pcb *pcb)
  800a286:	2100      	movs	r1, #0
  800a288:	4628      	mov	r0, r5
  800a28a:	e7e5      	b.n	800a258 <tcp_shutdown+0x30>
- 800a28c:	080114a5 	.word	0x080114a5
- 800a290:	080119fb 	.word	0x080119fb
- 800a294:	0800f5d5 	.word	0x0800f5d5
+ 800a28c:	08011457 	.word	0x08011457
+ 800a290:	080119ad 	.word	0x080119ad
+ 800a294:	0800f587 	.word	0x0800f587
 
 0800a298 <tcp_abandon>:
 {
@@ -25428,10 +25428,10 @@ tcp_pcb_remove(struct tcp_pcb **pcblist, struct tcp_pcb *pcb)
 }
  800a376:	b005      	add	sp, #20
  800a378:	e8bd 8ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}
- 800a37c:	080114a5 	.word	0x080114a5
- 800a380:	08011a15 	.word	0x08011a15
- 800a384:	0800f5d5 	.word	0x0800f5d5
- 800a388:	08011a2e 	.word	0x08011a2e
+ 800a37c:	08011457 	.word	0x08011457
+ 800a380:	080119c7 	.word	0x080119c7
+ 800a384:	0800f587 	.word	0x0800f587
+ 800a388:	080119e0 	.word	0x080119e0
  800a38c:	2000e414 	.word	0x2000e414
  800a390:	2000e400 	.word	0x2000e400
 
@@ -25458,9 +25458,9 @@ tcp_pcb_remove(struct tcp_pcb **pcblist, struct tcp_pcb *pcb)
 }
  800a3b6:	f06f 000c 	mvn.w	r0, #12
  800a3ba:	bd10      	pop	{r4, pc}
- 800a3bc:	080114a5 	.word	0x080114a5
- 800a3c0:	08011a5f 	.word	0x08011a5f
- 800a3c4:	0800f5d5 	.word	0x0800f5d5
+ 800a3bc:	08011457 	.word	0x08011457
+ 800a3c0:	08011a11 	.word	0x08011a11
+ 800a3c4:	0800f587 	.word	0x0800f587
 
 0800a3c8 <tcp_netif_ip_addr_changed_pcblist>:
 #endif /* TCP_CALCULATE_EFF_SEND_MSS */
@@ -25507,9 +25507,9 @@ tcp_netif_ip_addr_changed_pcblist(const ip_addr_t *old_addr, struct tcp_pcb *pcb
  800a3f2:	4634      	mov	r4, r6
  800a3f4:	e7f3      	b.n	800a3de <tcp_netif_ip_addr_changed_pcblist+0x16>
  800a3f6:	bf00      	nop
- 800a3f8:	080114a5 	.word	0x080114a5
- 800a3fc:	08011a7c 	.word	0x08011a7c
- 800a400:	0800f5d5 	.word	0x0800f5d5
+ 800a3f8:	08011457 	.word	0x08011457
+ 800a3fc:	08011a2e 	.word	0x08011a2e
+ 800a400:	0800f587 	.word	0x0800f587
 
 0800a404 <tcp_kill_state>:
   for (pcb = tcp_active_pcbs; pcb != NULL; pcb = pcb->next) {
@@ -25758,9 +25758,9 @@ tcp_netif_ip_addr_changed_pcblist(const ip_addr_t *old_addr, struct tcp_pcb *pcb
  800a580:	6058      	str	r0, [r3, #4]
 }
  800a582:	bd08      	pop	{r3, pc}
- 800a584:	080114a5 	.word	0x080114a5
- 800a588:	08011ab0 	.word	0x08011ab0
- 800a58c:	0800f5d5 	.word	0x0800f5d5
+ 800a584:	08011457 	.word	0x08011457
+ 800a588:	08011a62 	.word	0x08011a62
+ 800a58c:	0800f587 	.word	0x0800f587
  800a590:	20000034 	.word	0x20000034
  800a594:	2000e400 	.word	0x2000e400
 
@@ -25795,9 +25795,9 @@ tcp_netif_ip_addr_changed_pcblist(const ip_addr_t *old_addr, struct tcp_pcb *pcb
 }
  800a5c4:	4620      	mov	r0, r4
  800a5c6:	bd38      	pop	{r3, r4, r5, pc}
- 800a5c8:	080114a5 	.word	0x080114a5
- 800a5cc:	08011aca 	.word	0x08011aca
- 800a5d0:	0800f5d5 	.word	0x0800f5d5
+ 800a5c8:	08011457 	.word	0x08011457
+ 800a5cc:	08011a7c 	.word	0x08011a7c
+ 800a5d0:	0800f587 	.word	0x0800f587
 
 0800a5d4 <tcp_netif_ip_addr_changed>:
  * @param old_addr IP address of the netif before change
@@ -25981,9 +25981,9 @@ tcp_parseopt(struct tcp_pcb *pcb)
  800a6b6:	8028      	strh	r0, [r5, #0]
  800a6b8:	e7d2      	b.n	800a660 <tcp_parseopt+0x28>
  800a6ba:	bf00      	nop
- 800a6bc:	08011bb0 	.word	0x08011bb0
- 800a6c0:	08011c22 	.word	0x08011c22
- 800a6c4:	0800f5d5 	.word	0x0800f5d5
+ 800a6bc:	08011b62 	.word	0x08011b62
+ 800a6c0:	08011bd4 	.word	0x08011bd4
+ 800a6c4:	0800f587 	.word	0x0800f587
  800a6c8:	2000e41c 	.word	0x2000e41c
 
 0800a6cc <tcp_input_delayed_close>:
@@ -26022,9 +26022,9 @@ tcp_parseopt(struct tcp_pcb *pcb)
  800a70c:	2001      	movs	r0, #1
 }
  800a70e:	bd10      	pop	{r4, pc}
- 800a710:	08011bb0 	.word	0x08011bb0
- 800a714:	08011c3c 	.word	0x08011c3c
- 800a718:	0800f5d5 	.word	0x0800f5d5
+ 800a710:	08011b62 	.word	0x08011b62
+ 800a714:	08011bee 	.word	0x08011bee
+ 800a718:	0800f587 	.word	0x0800f587
  800a71c:	2000e41c 	.word	0x2000e41c
  800a720:	2000e408 	.word	0x2000e408
 
@@ -26117,10 +26117,10 @@ tcp_free_acked_segments(struct tcp_pcb *pcb, struct tcp_seg *seg_list, const cha
  800a7ca:	4654      	mov	r4, sl
  800a7cc:	e7b3      	b.n	800a736 <tcp_free_acked_segments.constprop.0+0x12>
  800a7ce:	bf00      	nop
- 800a7d0:	08011c61 	.word	0x08011c61
- 800a7d4:	0800f5d5 	.word	0x0800f5d5
- 800a7d8:	08011bb0 	.word	0x08011bb0
- 800a7dc:	08011c89 	.word	0x08011c89
+ 800a7d0:	08011c13 	.word	0x08011c13
+ 800a7d4:	0800f587 	.word	0x0800f587
+ 800a7d8:	08011b62 	.word	0x08011b62
+ 800a7dc:	08011c3b 	.word	0x08011c3b
  800a7e0:	2000e41c 	.word	0x2000e41c
 
 0800a7e4 <tcp_receive>:
@@ -26238,10 +26238,10 @@ tcp_free_acked_segments(struct tcp_pcb *pcb, struct tcp_seg *seg_list, const cha
  800a8ba:	f001 fcf9 	bl	800c2b0 <tcp_rexmit_fast>
       if (!found_dupack) {
  800a8be:	e00a      	b.n	800a8d6 <tcp_receive+0xf2>
- 800a8c0:	08011bb0 	.word	0x08011bb0
- 800a8c4:	08011ca9 	.word	0x08011ca9
- 800a8c8:	0800f5d5 	.word	0x0800f5d5
- 800a8cc:	08011cc2 	.word	0x08011cc2
+ 800a8c0:	08011b62 	.word	0x08011b62
+ 800a8c4:	08011c5b 	.word	0x08011c5b
+ 800a8c8:	0800f587 	.word	0x0800f587
+ 800a8cc:	08011c74 	.word	0x08011c74
  800a8d0:	2000e41c 	.word	0x2000e41c
               if (pcb->dupacks >= 3) {
  800a8d4:	d0f0      	beq.n	800a8b8 <tcp_receive+0xd4>
@@ -26594,13 +26594,13 @@ tcp_free_acked_segments(struct tcp_pcb *pcb, struct tcp_seg *seg_list, const cha
  800ab50:	e01a      	b.n	800ab88 <tcp_receive+0x3a4>
  800ab52:	bf00      	nop
  800ab54:	2000e40c 	.word	0x2000e40c
- 800ab58:	08011bb0 	.word	0x08011bb0
- 800ab5c:	08011cdb 	.word	0x08011cdb
- 800ab60:	0800f5d5 	.word	0x0800f5d5
- 800ab64:	08011ceb 	.word	0x08011ceb
- 800ab68:	08011cfa 	.word	0x08011cfa
- 800ab6c:	08011d0a 	.word	0x08011d0a
- 800ab70:	08011d41 	.word	0x08011d41
+ 800ab58:	08011b62 	.word	0x08011b62
+ 800ab5c:	08011c8d 	.word	0x08011c8d
+ 800ab60:	0800f587 	.word	0x0800f587
+ 800ab64:	08011c9d 	.word	0x08011c9d
+ 800ab68:	08011cac 	.word	0x08011cac
+ 800ab6c:	08011cbc 	.word	0x08011cbc
+ 800ab70:	08011cf3 	.word	0x08011cf3
           TCP_WND_INC(pcb->bytes_acked, acked);
  800ab74:	f8b4 106a 	ldrh.w	r1, [r4, #106]	; 0x6a
  800ab78:	440b      	add	r3, r1
@@ -27108,22 +27108,22 @@ tcp_free_acked_segments(struct tcp_pcb *pcb, struct tcp_seg *seg_list, const cha
  800aeda:	4627      	mov	r7, r4
  800aedc:	460c      	mov	r4, r1
  800aede:	e727      	b.n	800ad30 <tcp_input+0xe0>
- 800aee0:	08011bb0 	.word	0x08011bb0
- 800aee4:	08011d60 	.word	0x08011d60
- 800aee8:	0800f5d5 	.word	0x0800f5d5
+ 800aee0:	08011b62 	.word	0x08011b62
+ 800aee4:	08011d12 	.word	0x08011d12
+ 800aee8:	0800f587 	.word	0x0800f587
  800aeec:	2000e41c 	.word	0x2000e41c
  800aef0:	2000e414 	.word	0x2000e414
- 800aef4:	08011d78 	.word	0x08011d78
- 800aef8:	08011d88 	.word	0x08011d88
- 800aefc:	08011d94 	.word	0x08011d94
- 800af00:	08011dda 	.word	0x08011dda
- 800af04:	08011e04 	.word	0x08011e04
- 800af08:	08011e2b 	.word	0x08011e2b
- 800af0c:	08011e56 	.word	0x08011e56
+ 800aef4:	08011d2a 	.word	0x08011d2a
+ 800aef8:	08011d3a 	.word	0x08011d3a
+ 800aefc:	08011d46 	.word	0x08011d46
+ 800af00:	08011d8c 	.word	0x08011d8c
+ 800af04:	08011db6 	.word	0x08011db6
+ 800af08:	08011ddd 	.word	0x08011ddd
+ 800af0c:	08011e08 	.word	0x08011e08
  800af10:	2000a690 	.word	0x2000a690
  800af14:	2000e408 	.word	0x2000e408
- 800af18:	08011db3 	.word	0x08011db3
- 800af1c:	08011e80 	.word	0x08011e80
+ 800af18:	08011d65 	.word	0x08011d65
+ 800af1c:	08011e32 	.word	0x08011e32
       LWIP_ASSERT("tcp_input: TIME-WAIT pcb->state == TIME-WAIT", pcb->state == TIME_WAIT);
  800af20:	7d23      	ldrb	r3, [r4, #20]
  800af22:	2b0a      	cmp	r3, #10
@@ -27511,9 +27511,9 @@ tcp_free_acked_segments(struct tcp_pcb *pcb, struct tcp_seg *seg_list, const cha
  800b1c4:	2000e404 	.word	0x2000e404
  800b1c8:	2000e411 	.word	0x2000e411
  800b1cc:	2000e408 	.word	0x2000e408
- 800b1d0:	08011bb0 	.word	0x08011bb0
- 800b1d4:	08011ead 	.word	0x08011ead
- 800b1d8:	0800f5d5 	.word	0x0800f5d5
+ 800b1d0:	08011b62 	.word	0x08011b62
+ 800b1d4:	08011e5f 	.word	0x08011e5f
+ 800b1d8:	0800f587 	.word	0x0800f587
       if ((flags & TCP_ACK) && (flags & TCP_SYN)
  800b1dc:	7f2b      	ldrb	r3, [r5, #28]
  800b1de:	f003 0212 	and.w	r2, r3, #18
@@ -27911,12 +27911,12 @@ tcp_free_acked_segments(struct tcp_pcb *pcb, struct tcp_seg *seg_list, const cha
  800b496:	4613      	mov	r3, r2
  800b498:	e7f8      	b.n	800b48c <tcp_input+0x83c>
  800b49a:	bf00      	nop
- 800b49c:	08011bb0 	.word	0x08011bb0
- 800b4a0:	08011ecd 	.word	0x08011ecd
- 800b4a4:	0800f5d5 	.word	0x0800f5d5
- 800b4a8:	08011ee3 	.word	0x08011ee3
+ 800b49c:	08011b62 	.word	0x08011b62
+ 800b4a0:	08011e7f 	.word	0x08011e7f
+ 800b4a4:	0800f587 	.word	0x0800f587
+ 800b4a8:	08011e95 	.word	0x08011e95
  800b4ac:	2000a6a0 	.word	0x2000a6a0
- 800b4b0:	08011ef6 	.word	0x08011ef6
+ 800b4b0:	08011ea8 	.word	0x08011ea8
  800b4b4:	2000e41c 	.word	0x2000e41c
  800b4b8:	2000e411 	.word	0x2000e411
  800b4bc:	2000e414 	.word	0x2000e414
@@ -28114,9 +28114,9 @@ tcp_free_acked_segments(struct tcp_pcb *pcb, struct tcp_seg *seg_list, const cha
  800b61c:	f47f ac1a 	bne.w	800ae54 <tcp_input+0x204>
  800b620:	e429      	b.n	800ae76 <tcp_input+0x226>
  800b622:	bf00      	nop
- 800b624:	08011bb0 	.word	0x08011bb0
- 800b628:	08011f14 	.word	0x08011f14
- 800b62c:	0800f5d5 	.word	0x0800f5d5
+ 800b624:	08011b62 	.word	0x08011b62
+ 800b628:	08011ec6 	.word	0x08011ec6
+ 800b62c:	0800f587 	.word	0x0800f587
  800b630:	2000a6a0 	.word	0x2000a6a0
 
 0800b634 <tcp_trigger_input_pcb_close>:
@@ -28166,9 +28166,9 @@ tcp_output_segment_busy(const struct tcp_seg *seg)
  800b65e:	bf18      	it	ne
  800b660:	2001      	movne	r0, #1
  800b662:	bd10      	pop	{r4, pc}
- 800b664:	08011f2e 	.word	0x08011f2e
- 800b668:	08011fa1 	.word	0x08011fa1
- 800b66c:	0800f5d5 	.word	0x0800f5d5
+ 800b664:	08011ee0 	.word	0x08011ee0
+ 800b668:	08011f53 	.word	0x08011f53
+ 800b66c:	0800f587 	.word	0x0800f587
 
 0800b670 <tcp_pbuf_prealloc>:
 {
@@ -28241,10 +28241,10 @@ tcp_output_segment_busy(const struct tcp_seg *seg)
  800b6f2:	4621      	mov	r1, r4
  800b6f4:	e7e5      	b.n	800b6c2 <tcp_pbuf_prealloc+0x52>
  800b6f6:	bf00      	nop
- 800b6f8:	08011f2e 	.word	0x08011f2e
- 800b6fc:	08011fc6 	.word	0x08011fc6
- 800b700:	0800f5d5 	.word	0x0800f5d5
- 800b704:	08011fe5 	.word	0x08011fe5
+ 800b6f8:	08011ee0 	.word	0x08011ee0
+ 800b6fc:	08011f78 	.word	0x08011f78
+ 800b700:	0800f587 	.word	0x0800f587
+ 800b704:	08011f97 	.word	0x08011f97
 
 0800b708 <tcp_create_segment>:
 {
@@ -28362,11 +28362,11 @@ tcp_output_segment_busy(const struct tcp_seg *seg)
   return seg;
  800b7d4:	e7ba      	b.n	800b74c <tcp_create_segment+0x44>
  800b7d6:	bf00      	nop
- 800b7d8:	08011f2e 	.word	0x08011f2e
- 800b7dc:	08011ff9 	.word	0x08011ff9
- 800b7e0:	0800f5d5 	.word	0x0800f5d5
- 800b7e4:	08012019 	.word	0x08012019
- 800b7e8:	0801203a 	.word	0x0801203a
+ 800b7d8:	08011ee0 	.word	0x08011ee0
+ 800b7dc:	08011fab 	.word	0x08011fab
+ 800b7e0:	0800f587 	.word	0x0800f587
+ 800b7e4:	08011fcb 	.word	0x08011fcb
+ 800b7e8:	08011fec 	.word	0x08011fec
 
 0800b7ec <tcp_output_alloc_header_common.constprop.0>:
                         u16_t src_port, u16_t dst_port, u8_t flags, u16_t wnd)
@@ -28444,9 +28444,9 @@ tcp_output_alloc_header_common(u32_t ackno, u16_t optlen, u16_t datalen,
  800b85c:	4628      	mov	r0, r5
  800b85e:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
  800b862:	bf00      	nop
- 800b864:	08011f2e 	.word	0x08011f2e
- 800b868:	0801204f 	.word	0x0801204f
- 800b86c:	0800f5d5 	.word	0x0800f5d5
+ 800b864:	08011ee0 	.word	0x08011ee0
+ 800b868:	08012001 	.word	0x08012001
+ 800b86c:	0800f587 	.word	0x0800f587
 
 0800b870 <tcp_output_alloc_header.constprop.0>:
  * @param datalen length of tcp data to reserve in pbuf
@@ -28499,9 +28499,9 @@ tcp_output_alloc_header(struct tcp_pcb *pcb, u16_t optlen, u16_t datalen,
  800b8aa:	b004      	add	sp, #16
  800b8ac:	bd70      	pop	{r4, r5, r6, pc}
  800b8ae:	bf00      	nop
- 800b8b0:	08011f2e 	.word	0x08011f2e
- 800b8b4:	0801207d 	.word	0x0801207d
- 800b8b8:	0800f5d5 	.word	0x0800f5d5
+ 800b8b0:	08011ee0 	.word	0x08011ee0
+ 800b8b4:	0801202f 	.word	0x0801202f
+ 800b8b8:	0800f587 	.word	0x0800f587
 
 0800b8bc <tcp_output_fill_options.constprop.0>:
 {
@@ -28524,9 +28524,9 @@ tcp_output_alloc_header(struct tcp_pcb *pcb, u16_t optlen, u16_t datalen,
 }
  800b8cc:	4770      	bx	lr
  800b8ce:	bf00      	nop
- 800b8d0:	08011f2e 	.word	0x08011f2e
- 800b8d4:	080120a2 	.word	0x080120a2
- 800b8d8:	0800f5d5 	.word	0x0800f5d5
+ 800b8d0:	08011ee0 	.word	0x08011ee0
+ 800b8d4:	08012054 	.word	0x08012054
+ 800b8d8:	0800f587 	.word	0x0800f587
 
 0800b8dc <tcp_output_control_segment>:
  * header checksum and calling ip_output_if while handling netif hints and stats.
@@ -28602,9 +28602,9 @@ tcp_output_control_segment(const struct tcp_pcb *pcb, struct pbuf *p,
  800b93a:	23ff      	movs	r3, #255	; 0xff
  800b93c:	e7f2      	b.n	800b924 <tcp_output_control_segment+0x48>
  800b93e:	bf00      	nop
- 800b940:	08011f2e 	.word	0x08011f2e
- 800b944:	080120c8 	.word	0x080120c8
- 800b948:	0800f5d5 	.word	0x0800f5d5
+ 800b940:	08011ee0 	.word	0x08011ee0
+ 800b944:	0801207a 	.word	0x0801207a
+ 800b948:	0800f587 	.word	0x0800f587
 
 0800b94c <tcp_write>:
 {
@@ -28986,18 +28986,18 @@ tcp_output_control_segment(const struct tcp_pcb *pcb, struct pbuf *p,
       pbuf_free(p);
  800bc0c:	4630      	mov	r0, r6
  800bc0e:	e036      	b.n	800bc7e <tcp_write+0x332>
- 800bc10:	08011f2e 	.word	0x08011f2e
- 800bc14:	080120f1 	.word	0x080120f1
- 800bc18:	0800f5d5 	.word	0x0800f5d5
- 800bc1c:	08012108 	.word	0x08012108
- 800bc20:	08012139 	.word	0x08012139
- 800bc24:	08012223 	.word	0x08012223
- 800bc28:	08012173 	.word	0x08012173
- 800bc2c:	080121a5 	.word	0x080121a5
- 800bc30:	080121bc 	.word	0x080121bc
- 800bc34:	080121dc 	.word	0x080121dc
- 800bc38:	080121fa 	.word	0x080121fa
- 800bc3c:	08012252 	.word	0x08012252
+ 800bc10:	08011ee0 	.word	0x08011ee0
+ 800bc14:	080120a3 	.word	0x080120a3
+ 800bc18:	0800f587 	.word	0x0800f587
+ 800bc1c:	080120ba 	.word	0x080120ba
+ 800bc20:	080120eb 	.word	0x080120eb
+ 800bc24:	080121d5 	.word	0x080121d5
+ 800bc28:	08012125 	.word	0x08012125
+ 800bc2c:	08012157 	.word	0x08012157
+ 800bc30:	0801216e 	.word	0x0801216e
+ 800bc34:	0801218e 	.word	0x0801218e
+ 800bc38:	080121ac 	.word	0x080121ac
+ 800bc3c:	08012204 	.word	0x08012204
       LWIP_ASSERT("oversize == 0", oversize == 0);
  800bc40:	f8bd 3036 	ldrh.w	r3, [sp, #54]	; 0x36
  800bc44:	b133      	cbz	r3, 800bc54 <tcp_write+0x308>
@@ -29274,13 +29274,13 @@ tcp_output_control_segment(const struct tcp_pcb *pcb, struct pbuf *p,
     return ERR_CONN;
  800be66:	f06f 000a 	mvn.w	r0, #10
  800be6a:	e585      	b.n	800b978 <tcp_write+0x2c>
- 800be6c:	08011f2e 	.word	0x08011f2e
- 800be70:	08012290 	.word	0x08012290
- 800be74:	0800f5d5 	.word	0x0800f5d5
- 800be78:	0801231c 	.word	0x0801231c
- 800be7c:	0801229e 	.word	0x0801229e
- 800be80:	080122af 	.word	0x080122af
- 800be84:	080122e7 	.word	0x080122e7
+ 800be6c:	08011ee0 	.word	0x08011ee0
+ 800be70:	08012242 	.word	0x08012242
+ 800be74:	0800f587 	.word	0x0800f587
+ 800be78:	080122ce 	.word	0x080122ce
+ 800be7c:	08012250 	.word	0x08012250
+ 800be80:	08012261 	.word	0x08012261
+ 800be84:	08012299 	.word	0x08012299
 
 0800be88 <tcp_split_unsent_seg>:
 {
@@ -29479,12 +29479,12 @@ tcp_output_control_segment(const struct tcp_pcb *pcb, struct pbuf *p,
  800c000:	4648      	mov	r0, r9
  800c002:	f7fd f859 	bl	80090b8 <pbuf_free>
  800c006:	e74d      	b.n	800bea4 <tcp_split_unsent_seg+0x1c>
- 800c008:	08011f2e 	.word	0x08011f2e
- 800c00c:	0801233a 	.word	0x0801233a
- 800c010:	0800f5d5 	.word	0x0800f5d5
- 800c014:	0801235c 	.word	0x0801235c
- 800c018:	0801237e 	.word	0x0801237e
- 800c01c:	0801238b 	.word	0x0801238b
+ 800c008:	08011ee0 	.word	0x08011ee0
+ 800c00c:	080122ec 	.word	0x080122ec
+ 800c010:	0800f587 	.word	0x0800f587
+ 800c014:	0801230e 	.word	0x0801230e
+ 800c018:	08012330 	.word	0x08012330
+ 800c01c:	0801233d 	.word	0x0801233d
 
 0800c020 <tcp_enqueue_flags>:
 {
@@ -29620,14 +29620,14 @@ tcp_output_control_segment(const struct tcp_pcb *pcb, struct pbuf *p,
  800c122:	6015      	str	r5, [r2, #0]
  800c124:	e7d1      	b.n	800c0ca <tcp_enqueue_flags+0xaa>
  800c126:	bf00      	nop
- 800c128:	08011f2e 	.word	0x08011f2e
- 800c12c:	08012399 	.word	0x08012399
- 800c130:	0800f5d5 	.word	0x0800f5d5
- 800c134:	080123ee 	.word	0x080123ee
- 800c138:	0801240d 	.word	0x0801240d
- 800c13c:	08012446 	.word	0x08012446
- 800c140:	0801245e 	.word	0x0801245e
- 800c144:	08012488 	.word	0x08012488
+ 800c128:	08011ee0 	.word	0x08011ee0
+ 800c12c:	0801234b 	.word	0x0801234b
+ 800c130:	0800f587 	.word	0x0800f587
+ 800c134:	080123a0 	.word	0x080123a0
+ 800c138:	080123bf 	.word	0x080123bf
+ 800c13c:	080123f8 	.word	0x080123f8
+ 800c140:	08012410 	.word	0x08012410
+ 800c144:	0801243a 	.word	0x0801243a
 
 0800c148 <tcp_send_fin>:
 {
@@ -29677,9 +29677,9 @@ tcp_output_control_segment(const struct tcp_pcb *pcb, struct pbuf *p,
  800c198:	8363      	strh	r3, [r4, #26]
 }
  800c19a:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
- 800c19c:	08011f2e 	.word	0x08011f2e
- 800c1a0:	080124b0 	.word	0x080124b0
- 800c1a4:	0800f5d5 	.word	0x0800f5d5
+ 800c19c:	08011ee0 	.word	0x08011ee0
+ 800c1a0:	08012462 	.word	0x08012462
+ 800c1a4:	0800f587 	.word	0x0800f587
 
 0800c1a8 <tcp_rexmit_rto_prepare>:
 {
@@ -29751,9 +29751,9 @@ tcp_output_control_segment(const struct tcp_pcb *pcb, struct pbuf *p,
   return ERR_OK;
  800c220:	e7d1      	b.n	800c1c6 <tcp_rexmit_rto_prepare+0x1e>
  800c222:	bf00      	nop
- 800c224:	08011f2e 	.word	0x08011f2e
- 800c228:	080124ca 	.word	0x080124ca
- 800c22c:	0800f5d5 	.word	0x0800f5d5
+ 800c224:	08011ee0 	.word	0x08011ee0
+ 800c228:	0801247c 	.word	0x0801247c
+ 800c22c:	0800f587 	.word	0x0800f587
 
 0800c230 <tcp_rexmit>:
 {
@@ -29827,9 +29827,9 @@ tcp_output_control_segment(const struct tcp_pcb *pcb, struct pbuf *p,
  800c29e:	6836      	ldr	r6, [r6, #0]
  800c2a0:	e7de      	b.n	800c260 <tcp_rexmit+0x30>
  800c2a2:	bf00      	nop
- 800c2a4:	08011f2e 	.word	0x08011f2e
- 800c2a8:	080124ee 	.word	0x080124ee
- 800c2ac:	0800f5d5 	.word	0x0800f5d5
+ 800c2a4:	08011ee0 	.word	0x08011ee0
+ 800c2a8:	080124a0 	.word	0x080124a0
+ 800c2ac:	0800f587 	.word	0x0800f587
 
 0800c2b0 <tcp_rexmit_fast>:
 {
@@ -29886,9 +29886,9 @@ tcp_output_control_segment(const struct tcp_pcb *pcb, struct pbuf *p,
 }
  800c308:	bd38      	pop	{r3, r4, r5, pc}
  800c30a:	bf00      	nop
- 800c30c:	08011f2e 	.word	0x08011f2e
- 800c310:	08012506 	.word	0x08012506
- 800c314:	0800f5d5 	.word	0x0800f5d5
+ 800c30c:	08011ee0 	.word	0x08011ee0
+ 800c310:	080124b8 	.word	0x080124b8
+ 800c314:	0800f587 	.word	0x0800f587
 
 0800c318 <tcp_rst>:
  */
@@ -29969,10 +29969,10 @@ tcp_rst(const struct tcp_pcb *pcb, u32_t seqno, u32_t ackno,
 }
  800c38e:	b004      	add	sp, #16
  800c390:	e8bd 87f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, pc}
- 800c394:	08011f2e 	.word	0x08011f2e
- 800c398:	08012523 	.word	0x08012523
- 800c39c:	0800f5d5 	.word	0x0800f5d5
- 800c3a0:	0801253d 	.word	0x0801253d
+ 800c394:	08011ee0 	.word	0x08011ee0
+ 800c398:	080124d5 	.word	0x080124d5
+ 800c39c:	0800f587 	.word	0x0800f587
+ 800c3a0:	080124ef 	.word	0x080124ef
 
 0800c3a4 <tcp_send_empty_ack>:
  *
@@ -30044,9 +30044,9 @@ tcp_send_empty_ack(struct tcp_pcb *pcb)
  800c3f4:	e7f0      	b.n	800c3d8 <tcp_send_empty_ack+0x34>
  800c3f6:	f023 0303 	bic.w	r3, r3, #3
  800c3fa:	e7fa      	b.n	800c3f2 <tcp_send_empty_ack+0x4e>
- 800c3fc:	08011f2e 	.word	0x08011f2e
- 800c400:	08012558 	.word	0x08012558
- 800c404:	0800f5d5 	.word	0x0800f5d5
+ 800c3fc:	08011ee0 	.word	0x08011ee0
+ 800c400:	0801250a 	.word	0x0801250a
+ 800c404:	0800f587 	.word	0x0800f587
 
 0800c408 <tcp_output>:
 {
@@ -30372,13 +30372,13 @@ tcp_send_empty_ack(struct tcp_pcb *pcb)
  800c64a:	462e      	mov	r6, r5
  800c64c:	e023      	b.n	800c696 <tcp_output+0x28e>
  800c64e:	bf00      	nop
- 800c650:	08011f2e 	.word	0x08011f2e
- 800c654:	08012578 	.word	0x08012578
- 800c658:	0800f5d5 	.word	0x0800f5d5
- 800c65c:	08012590 	.word	0x08012590
+ 800c650:	08011ee0 	.word	0x08011ee0
+ 800c654:	0801252a 	.word	0x0801252a
+ 800c658:	0800f587 	.word	0x0800f587
+ 800c65c:	08012542 	.word	0x08012542
  800c660:	2000e458 	.word	0x2000e458
  800c664:	2000e40c 	.word	0x2000e40c
- 800c668:	080125cd 	.word	0x080125cd
+ 800c668:	0801257f 	.word	0x0801257f
         if (TCP_SEQ_LT(lwip_ntohl(seg->tcphdr->seqno), lwip_ntohl(useg->tcphdr->seqno))) {
  800c66c:	68eb      	ldr	r3, [r5, #12]
  800c66e:	6858      	ldr	r0, [r3, #4]
@@ -30496,7 +30496,7 @@ tcp_send_empty_ack(struct tcp_pcb *pcb)
     return ERR_RTE;
  800c752:	f06f 0003 	mvn.w	r0, #3
  800c756:	e731      	b.n	800c5bc <tcp_output+0x1b4>
- 800c758:	080125b6 	.word	0x080125b6
+ 800c758:	08012568 	.word	0x08012568
 
 0800c75c <tcp_rexmit_rto_commit>:
 {
@@ -30523,9 +30523,9 @@ tcp_send_empty_ack(struct tcp_pcb *pcb)
  800c780:	e8bd 4010 	ldmia.w	sp!, {r4, lr}
   tcp_output(pcb);
  800c784:	f7ff be40 	b.w	800c408 <tcp_output>
- 800c788:	08011f2e 	.word	0x08011f2e
- 800c78c:	080125e0 	.word	0x080125e0
- 800c790:	0800f5d5 	.word	0x0800f5d5
+ 800c788:	08011ee0 	.word	0x08011ee0
+ 800c78c:	08012592 	.word	0x08012592
+ 800c790:	0800f587 	.word	0x0800f587
 
 0800c794 <tcp_rexmit_rto>:
 {
@@ -30550,9 +30550,9 @@ tcp_send_empty_ack(struct tcp_pcb *pcb)
  800c7b6:	f7ff bfd1 	b.w	800c75c <tcp_rexmit_rto_commit>
 }
  800c7ba:	bd10      	pop	{r4, pc}
- 800c7bc:	08011f2e 	.word	0x08011f2e
- 800c7c0:	08012603 	.word	0x08012603
- 800c7c4:	0800f5d5 	.word	0x0800f5d5
+ 800c7bc:	08011ee0 	.word	0x08011ee0
+ 800c7c0:	080125b5 	.word	0x080125b5
+ 800c7c4:	0800f587 	.word	0x0800f587
 
 0800c7c8 <tcp_keepalive>:
  *
@@ -30612,9 +30612,9 @@ tcp_keepalive(struct tcp_pcb *pcb)
 }
  800c806:	f04f 30ff 	mov.w	r0, #4294967295
  800c80a:	bd70      	pop	{r4, r5, r6, pc}
- 800c80c:	08011f2e 	.word	0x08011f2e
- 800c810:	0801261f 	.word	0x0801261f
- 800c814:	0800f5d5 	.word	0x0800f5d5
+ 800c80c:	08011ee0 	.word	0x08011ee0
+ 800c810:	080125d1 	.word	0x080125d1
+ 800c814:	0800f587 	.word	0x0800f587
 
 0800c818 <tcp_zero_window_probe>:
  *
@@ -30759,9 +30759,9 @@ tcp_zero_window_probe(struct tcp_pcb *pcb)
  800c8cc:	f04f 30ff 	mov.w	r0, #4294967295
  800c8d0:	e7fa      	b.n	800c8c8 <tcp_zero_window_probe+0xb0>
  800c8d2:	bf00      	nop
- 800c8d4:	08011f2e 	.word	0x08011f2e
- 800c8d8:	0801263a 	.word	0x0801263a
- 800c8dc:	0800f5d5 	.word	0x0800f5d5
+ 800c8d4:	08011ee0 	.word	0x08011ee0
+ 800c8d8:	080125ec 	.word	0x080125ec
+ 800c8dc:	0800f587 	.word	0x0800f587
 
 0800c8e0 <sys_timeout_abs>:
 #if LWIP_DEBUG_TIMERNAMES
@@ -30837,9 +30837,9 @@ sys_timeout_abs(u32_t abs_time, sys_timeout_handler handler, void *arg)
  800c930:	6008      	str	r0, [r1, #0]
         break;
  800c932:	e7ee      	b.n	800c912 <sys_timeout_abs+0x32>
- 800c934:	0801265d 	.word	0x0801265d
- 800c938:	080126d1 	.word	0x080126d1
- 800c93c:	0800f5d5 	.word	0x0800f5d5
+ 800c934:	0801260f 	.word	0x0801260f
+ 800c938:	08012683 	.word	0x08012683
+ 800c93c:	0800f587 	.word	0x0800f587
  800c940:	2000e45c 	.word	0x2000e45c
 
 0800c944 <lwip_cyclic_timer>:
@@ -30938,9 +30938,9 @@ lwip_cyclic_timer(void *arg)
   sys_timeout_abs(next_timeout_time, handler, arg);
  800c9a2:	f7ff bf9d 	b.w	800c8e0 <sys_timeout_abs>
  800c9a6:	bf00      	nop
- 800c9a8:	0801265d 	.word	0x0801265d
- 800c9ac:	0801270e 	.word	0x0801270e
- 800c9b0:	0800f5d5 	.word	0x0800f5d5
+ 800c9a8:	0801260f 	.word	0x0801260f
+ 800c9ac:	080126c0 	.word	0x080126c0
+ 800c9b0:	0800f587 	.word	0x0800f587
 
 0800c9b4 <tcp_timer_needed>:
   if (!tcpip_tcp_timer_active && (tcp_active_pcbs || tcp_tw_pcbs)) {
@@ -31408,13 +31408,13 @@ udp_input(struct pbuf *p, struct netif *inp)
  800cc3c:	4630      	mov	r0, r6
  800cc3e:	f7fa fee5 	bl	8007a0c <icmp_dest_unreach>
  800cc42:	e751      	b.n	800cae8 <udp_input+0x30>
- 800cc44:	08012744 	.word	0x08012744
- 800cc48:	080127b3 	.word	0x080127b3
- 800cc4c:	0800f5d5 	.word	0x0800f5d5
- 800cc50:	080127cb 	.word	0x080127cb
+ 800cc44:	080126f6 	.word	0x080126f6
+ 800cc48:	08012765 	.word	0x08012765
+ 800cc4c:	0800f587 	.word	0x0800f587
+ 800cc50:	0801277d 	.word	0x0801277d
  800cc54:	2000a690 	.word	0x2000a690
- 800cc58:	080127e4 	.word	0x080127e4
- 800cc5c:	08012809 	.word	0x08012809
+ 800cc58:	08012796 	.word	0x08012796
+ 800cc5c:	080127bb 	.word	0x080127bb
  800cc60:	2000a6a0 	.word	0x2000a6a0
  800cc64:	2000e468 	.word	0x2000e468
 
@@ -31551,9 +31551,9 @@ udp_bind(struct udp_pcb *pcb, const ip_addr_t *ipaddr, u16_t port)
  800cd18:	e7fa      	b.n	800cd10 <udp_bind+0xa8>
  800cd1a:	bf00      	nop
  800cd1c:	0800e614 	.word	0x0800e614
- 800cd20:	08012744 	.word	0x08012744
- 800cd24:	08012824 	.word	0x08012824
- 800cd28:	0800f5d5 	.word	0x0800f5d5
+ 800cd20:	080126f6 	.word	0x080126f6
+ 800cd24:	080127d6 	.word	0x080127d6
+ 800cd28:	0800f587 	.word	0x0800f587
  800cd2c:	2000003c 	.word	0x2000003c
  800cd30:	2000e468 	.word	0x2000e468
 
@@ -31703,14 +31703,14 @@ udp_bind(struct udp_pcb *pcb, const ip_addr_t *ipaddr, u16_t port)
  800ce3e:	4635      	mov	r5, r6
  800ce40:	e7d0      	b.n	800cde4 <udp_sendto_if_src+0xb0>
  800ce42:	bf00      	nop
- 800ce44:	08012744 	.word	0x08012744
- 800ce48:	0801283a 	.word	0x0801283a
- 800ce4c:	0800f5d5 	.word	0x0800f5d5
- 800ce50:	08012859 	.word	0x08012859
- 800ce54:	08012879 	.word	0x08012879
- 800ce58:	0801289b 	.word	0x0801289b
- 800ce5c:	080128bd 	.word	0x080128bd
- 800ce60:	080128de 	.word	0x080128de
+ 800ce44:	080126f6 	.word	0x080126f6
+ 800ce48:	080127ec 	.word	0x080127ec
+ 800ce4c:	0800f587 	.word	0x0800f587
+ 800ce50:	0801280b 	.word	0x0801280b
+ 800ce54:	0801282b 	.word	0x0801282b
+ 800ce58:	0801284d 	.word	0x0801284d
+ 800ce5c:	0801286f 	.word	0x0801286f
+ 800ce60:	08012890 	.word	0x08012890
 
 0800ce64 <udp_sendto_if>:
 {
@@ -31770,12 +31770,12 @@ udp_bind(struct udp_pcb *pcb, const ip_addr_t *ipaddr, u16_t port)
         return ERR_RTE;
  800cec6:	f06f 0003 	mvn.w	r0, #3
  800ceca:	e7d7      	b.n	800ce7c <udp_sendto_if+0x18>
- 800cecc:	08012744 	.word	0x08012744
- 800ced0:	0801290c 	.word	0x0801290c
- 800ced4:	0800f5d5 	.word	0x0800f5d5
- 800ced8:	08012927 	.word	0x08012927
- 800cedc:	08012943 	.word	0x08012943
- 800cee0:	08012961 	.word	0x08012961
+ 800cecc:	080126f6 	.word	0x080126f6
+ 800ced0:	080128be 	.word	0x080128be
+ 800ced4:	0800f587 	.word	0x0800f587
+ 800ced8:	080128d9 	.word	0x080128d9
+ 800cedc:	080128f5 	.word	0x080128f5
+ 800cee0:	08012913 	.word	0x08012913
 
 0800cee4 <udp_connect>:
  *
@@ -31855,10 +31855,10 @@ udp_connect(struct udp_pcb *pcb, const ip_addr_t *ipaddr, u16_t port)
  800cf42:	2000      	movs	r0, #0
  800cf44:	e7dc      	b.n	800cf00 <udp_connect+0x1c>
  800cf46:	bf00      	nop
- 800cf48:	08012744 	.word	0x08012744
- 800cf4c:	080129f7 	.word	0x080129f7
- 800cf50:	0800f5d5 	.word	0x0800f5d5
- 800cf54:	08012a10 	.word	0x08012a10
+ 800cf48:	080126f6 	.word	0x080126f6
+ 800cf4c:	080129a9 	.word	0x080129a9
+ 800cf50:	0800f587 	.word	0x0800f587
+ 800cf54:	080129c2 	.word	0x080129c2
  800cf58:	2000e468 	.word	0x2000e468
 
 0800cf5c <udp_recv>:
@@ -31882,9 +31882,9 @@ udp_recv(struct udp_pcb *pcb, udp_recv_fn recv, void *recv_arg)
 }
  800cf70:	4770      	bx	lr
  800cf72:	bf00      	nop
- 800cf74:	08012744 	.word	0x08012744
- 800cf78:	08012a48 	.word	0x08012a48
- 800cf7c:	0800f5d5 	.word	0x0800f5d5
+ 800cf74:	080126f6 	.word	0x080126f6
+ 800cf78:	080129fa 	.word	0x080129fa
+ 800cf7c:	0800f587 	.word	0x0800f587
 
 0800cf80 <udp_remove>:
 {
@@ -31936,9 +31936,9 @@ udp_recv(struct udp_pcb *pcb, udp_recv_fn recv, void *recv_arg)
         break;
  800cfb8:	e7f1      	b.n	800cf9e <udp_remove+0x1e>
  800cfba:	bf00      	nop
- 800cfbc:	08012744 	.word	0x08012744
- 800cfc0:	08012a5e 	.word	0x08012a5e
- 800cfc4:	0800f5d5 	.word	0x0800f5d5
+ 800cfbc:	080126f6 	.word	0x080126f6
+ 800cfc0:	08012a10 	.word	0x08012a10
+ 800cfc4:	0800f587 	.word	0x0800f587
  800cfc8:	2000e468 	.word	0x2000e468
 
 0800cfcc <udp_new>:
@@ -32243,9 +32243,9 @@ pbuf_header_failed:
  800d112:	f06f 0001 	mvn.w	r0, #1
  800d116:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
  800d11a:	bf00      	nop
- 800d11c:	08012a76 	.word	0x08012a76
- 800d120:	08012aeb 	.word	0x08012aeb
- 800d124:	0800f5d5 	.word	0x0800f5d5
+ 800d11c:	08012a28 	.word	0x08012a28
+ 800d120:	08012a9d 	.word	0x08012a9d
+ 800d124:	0800f587 	.word	0x0800f587
 
 0800d128 <sys_mbox_new>:
 #endif
@@ -32868,10 +32868,10 @@ fs_open(struct fs_file *file, const char *name)
  800d372:	4798      	blx	r3
  800d374:	3601      	adds	r6, #1
  800d376:	e7f2      	b.n	800d35e <__libc_init_array+0x1e>
- 800d378:	08012c6c 	.word	0x08012c6c
- 800d37c:	08012c6c 	.word	0x08012c6c
- 800d380:	08012c6c 	.word	0x08012c6c
- 800d384:	08012c70 	.word	0x08012c70
+ 800d378:	08012c20 	.word	0x08012c20
+ 800d37c:	08012c20 	.word	0x08012c20
+ 800d380:	08012c20 	.word	0x08012c20
+ 800d384:	08012c24 	.word	0x08012c24
 
 0800d388 <memcmp>:
  800d388:	b510      	push	{r4, lr}
@@ -32973,8 +32973,8 @@ fs_open(struct fs_file *file, const char *name)
  800d45a:	f020 4000 	bic.w	r0, r0, #2147483648	; 0x80000000
  800d45e:	bd10      	pop	{r4, pc}
  800d460:	20000040 	.word	0x20000040
- 800d464:	08012b20 	.word	0x08012b20
- 800d468:	08012b37 	.word	0x08012b37
+ 800d464:	08012ad4 	.word	0x08012ad4
+ 800d468:	08012aeb 	.word	0x08012aeb
  800d46c:	abcd330e 	.word	0xabcd330e
  800d470:	e66d1234 	.word	0xe66d1234
  800d474:	0005deec 	.word	0x0005deec
@@ -33092,9 +33092,9 @@ fs_open(struct fs_file *file, const char *name)
  800d55c:	e7f3      	b.n	800d546 <__assert_func+0x12>
  800d55e:	bf00      	nop
  800d560:	20000040 	.word	0x20000040
- 800d564:	08012b92 	.word	0x08012b92
- 800d568:	08012b9f 	.word	0x08012b9f
- 800d56c:	0800f7b6 	.word	0x0800f7b6
+ 800d564:	08012b46 	.word	0x08012b46
+ 800d568:	08012b53 	.word	0x08012b53
+ 800d56c:	0800f768 	.word	0x0800f768
 
 0800d570 <std>:
  800d570:	2300      	movs	r3, #0
@@ -33219,7 +33219,7 @@ fs_open(struct fs_file *file, const char *name)
  800d682:	61a3      	str	r3, [r4, #24]
  800d684:	e7d2      	b.n	800d62c <__sinit+0xc>
  800d686:	bf00      	nop
- 800d688:	08012b1c 	.word	0x08012b1c
+ 800d688:	08012ad0 	.word	0x08012ad0
  800d68c:	0800d5b9 	.word	0x0800d5b9
 
 0800d690 <__sfp>:
@@ -33274,7 +33274,7 @@ fs_open(struct fs_file *file, const char *name)
  800d70e:	603b      	str	r3, [r7, #0]
  800d710:	e7ee      	b.n	800d6f0 <__sfp+0x60>
  800d712:	bf00      	nop
- 800d714:	08012b1c 	.word	0x08012b1c
+ 800d714:	08012ad0 	.word	0x08012ad0
  800d718:	ffff0001 	.word	0xffff0001
 
 0800d71c <fiprintf>:
@@ -33822,14 +33822,14 @@ fs_open(struct fs_file *file, const char *name)
  800dbe0:	f000 f880 	bl	800dce4 <_printf_i>
  800dbe4:	e7e4      	b.n	800dbb0 <_vfiprintf_r+0x208>
  800dbe6:	bf00      	nop
- 800dbe8:	08012bf0 	.word	0x08012bf0
- 800dbec:	08012c10 	.word	0x08012c10
- 800dbf0:	08012bd0 	.word	0x08012bd0
- 800dbf4:	08012c30 	.word	0x08012c30
- 800dbf8:	08012c3a 	.word	0x08012c3a
+ 800dbe8:	08012ba4 	.word	0x08012ba4
+ 800dbec:	08012bc4 	.word	0x08012bc4
+ 800dbf0:	08012b84 	.word	0x08012b84
+ 800dbf4:	08012be4 	.word	0x08012be4
+ 800dbf8:	08012bee 	.word	0x08012bee
  800dbfc:	00000000 	.word	0x00000000
  800dc00:	0800d983 	.word	0x0800d983
- 800dc04:	08012c36 	.word	0x08012c36
+ 800dc04:	08012bea 	.word	0x08012bea
 
 0800dc08 <_printf_common>:
  800dc08:	e92d 47f0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, lr}
@@ -34165,8 +34165,8 @@ fs_open(struct fs_file *file, const char *name)
  800df20:	f104 0619 	add.w	r6, r4, #25
  800df24:	e7f5      	b.n	800df12 <_printf_i+0x22e>
  800df26:	bf00      	nop
- 800df28:	08012c41 	.word	0x08012c41
- 800df2c:	08012c52 	.word	0x08012c52
+ 800df28:	08012bf5 	.word	0x08012bf5
+ 800df2c:	08012c06 	.word	0x08012c06
 
 0800df30 <_sbrk_r>:
  800df30:	b538      	push	{r3, r4, r5, lr}
@@ -34316,9 +34316,9 @@ fs_open(struct fs_file *file, const char *name)
  800e068:	f04f 37ff 	mov.w	r7, #4294967295
  800e06c:	e7ea      	b.n	800e044 <__swbuf_r+0x6c>
  800e06e:	bf00      	nop
- 800e070:	08012bf0 	.word	0x08012bf0
- 800e074:	08012c10 	.word	0x08012c10
- 800e078:	08012bd0 	.word	0x08012bd0
+ 800e070:	08012ba4 	.word	0x08012ba4
+ 800e074:	08012bc4 	.word	0x08012bc4
+ 800e078:	08012b84 	.word	0x08012b84
 
 0800e07c <_write_r>:
  800e07c:	b538      	push	{r3, r4, r5, lr}
@@ -34428,9 +34428,9 @@ fs_open(struct fs_file *file, const char *name)
  800e168:	e7f7      	b.n	800e15a <__swsetup_r+0xba>
  800e16a:	bf00      	nop
  800e16c:	20000040 	.word	0x20000040
- 800e170:	08012bf0 	.word	0x08012bf0
- 800e174:	08012c10 	.word	0x08012c10
- 800e178:	08012bd0 	.word	0x08012bd0
+ 800e170:	08012ba4 	.word	0x08012ba4
+ 800e174:	08012bc4 	.word	0x08012bc4
+ 800e178:	08012b84 	.word	0x08012b84
 
 0800e17c <abort>:
  800e17c:	b508      	push	{r3, lr}
@@ -34630,9 +34630,9 @@ fs_open(struct fs_file *file, const char *name)
  800e31e:	bf08      	it	eq
  800e320:	68ec      	ldreq	r4, [r5, #12]
  800e322:	e7da      	b.n	800e2da <_fflush_r+0x22>
- 800e324:	08012bf0 	.word	0x08012bf0
- 800e328:	08012c10 	.word	0x08012c10
- 800e32c:	08012bd0 	.word	0x08012bd0
+ 800e324:	08012ba4 	.word	0x08012ba4
+ 800e328:	08012bc4 	.word	0x08012bc4
+ 800e32c:	08012b84 	.word	0x08012b84
 
 0800e330 <_lseek_r>:
  800e330:	b538      	push	{r3, r4, r5, lr}
